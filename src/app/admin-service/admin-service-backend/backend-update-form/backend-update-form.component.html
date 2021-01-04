@@ -1,0 +1,65 @@
+
+<!-- general form elements -->
+<div class="card card-warning">
+    <div class="card-header">
+      <h3 class="card-title">Update By "{{backend.title}}" </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+    
+        <form #updatebackendform="ngForm"  (ngSubmit)="updateform(updatebackendform)"  >
+
+            <div class="row">
+              <div class="col-sm-8">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Title</label>
+                  <input   type="text" class="form-control" #title="ngModel" [(ngModel)]="backend.title" name="title" id="title" />
+                </div>
+              </div>
+            </div>
+        
+           
+        
+            <div class="form-group">
+              <label>Content</label>
+              <textarea
+                class="form-control"
+                rows="3"
+               
+                #content="ngModel" [(ngModel)]="backend.content" name="content" id="content"
+               
+              ></textarea>
+            </div>
+        
+            <div class="row">
+                <div class="col-sm-8">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>İmageUrl</label>
+                    <input   type="text" class="form-control" #imageUrl [(ngModel)]="backend.imageUrl" name="imageUrl" id="imageUrl" />
+                  </div>
+                </div>
+              </div>
+           
+        
+           
+        
+            <div class="row">
+              <div class="col-sm-6">
+                <!-- text input -->
+                <button type="submit" class="btn btn-warning mr-2 px-4">
+                  Update
+                </button>
+              </div>
+            </div>
+          </form>
+
+
+
+
+    </div>
+    <!-- /.card-body -->
+    
+  </div>
+  

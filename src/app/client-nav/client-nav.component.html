@@ -1,0 +1,63 @@
+
+	<nav class="fh5co-nav" role="navigation">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<div id="fh5co-logo"><a href="index.html">{{homepage.mainTitle}}<span>.</span></a></div>
+					<div>
+						 <button class="btn btn-primary"><a href="admin">Admin</a>  </button> 
+					</div>
+					<br><br>
+				</div>
+				<div class="col-xs-12 text-center menu-1">
+					<ul>
+						<li [class.active]="homeactive"><a routerLink="home" (click)="homeactivef()">Home</a></li>
+						<li class="has-dropdown" [class.active]="serviceactive">
+							<a>Services</a>
+							<ul class="dropdown">
+								<!-- <li><a href="service-backend">Backend Service</a></li>
+								<li><a href="service-frontend">Frontend Service</a></li>
+								<li><a href="service-database">Database Service</a></li>
+								<li><a href="service-devops">Devops Service</a></li> -->
+								<li ><a routerLink="service-backend" (click)="serviceactivef()">Backend Service</a></li>
+								<li><a routerLink="service-frontend">Frontend Service</a></li>
+								<li><a routerLink="service-database">Database Service</a></li>
+								<li><a routerLink="service-devops">Devops Service</a></li>
+
+							</ul>
+						</li>
+
+						<li [class.active]="workactive"><a routerLink="work" (click)="workactivef()">Work</a></li>
+						<li [class.active]="aboutactive"><a routerLink="about" (click)="aboutactivef()">About</a></li>
+						<li [class.active]="blogactive"><a routerLink="blog" (click)="blogactivef()">Blog</a></li>
+						<li [class.active]="contactactive"><a routerLink="contact" (click)="contactactivef()">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</nav>
+	
+
+<app-client-header></app-client-header>
+
+    <!-- <header id="fh5co-header" class="fh5co-cover" role="banner" >
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeInUp">
+							<h1 class="mb30">Never Stop Exploring.</h1>
+							<p>
+								<a href="http://freehtml5.co/" target="_blank" class="btn btn-primary">Download</a> or 
+								<a href="https://vimeo.com/channels/staffpicks/93951774" class="link-watch popup-vimeo">Watch Video</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header> -->
+
+

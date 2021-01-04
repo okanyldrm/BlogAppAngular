@@ -1,0 +1,111 @@
+<form #homepageform="ngForm" (ngSubmit)="updateForm(homepageform)"  >
+    <div class="row">
+      <div class="col-sm-8">
+        <!-- text input -->
+        <div class="form-group">
+          <label>Main Title</label>
+          <input   type="text" class="form-control" #mainTitle="ngModel"  [(ngModel)]="homepage.mainTitle" name="mainTitle" id="mainTitle" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <!-- text input -->
+        <div class="form-group">
+          <label>Title</label>
+          <input class="form-control" [(ngModel)]="homepage.title" name="title" id="title"  />
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Mini Title</label>
+          <input type="text" class="form-control" [(ngModel)]="homepage.miniTitle" name="miniTitle" id="miniTitle"   />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Title Content</label>
+      <textarea
+        class="form-control"
+        rows="3"
+       
+        [(ngModel)]="homepage.titleContent" name="titleContent" id="titleContent" 
+      ></textarea>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <!-- text input -->
+        <div class="form-group">
+          <label>Title-2</label>
+          <input class="form-control"      [(ngModel)]="homepage.title2" name="title2" id="title2"  />
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Mini Title-2</label>
+          <input type="text" class="form-control"    [(ngModel)]="homepage.miniTitle2" name="miniTitle2" id="miniTitle2"  />
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Title-2 Content</label>
+      <textarea
+        class="form-control"
+        rows="3"
+      
+        [(ngModel)]="homepage.title2Content" name="title2Content" id="title2Content" 
+      ></textarea>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <!-- text input -->
+        <div class="form-group">
+          <label>Downloads</label>
+          <input class="form-control"   [(ngModel)]="homepage.downloads" name="downloads" id="downloads"  />
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label>Happy Client</label>
+          <input type="text" class="form-control"   [(ngModel)]="homepage.happyClient" name="happyClient" id="happyClient" />
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label>Project Done</label>
+          <input type="text" class="form-control"   [(ngModel)]="homepage.projectDone" name="projectDone" id="projectDone" />
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label>Hours Spent</label>
+          <input type="text" class="form-control"    [(ngModel)]="homepage.hoursSpent" name="hoursSpent" id="hoursSpent" />
+        </div>
+      </div>
+    </div>
+
+    <!-- input states
+    <div class="form-group">
+      <label class="col-form-label" for="inputSuccess">
+        <i class="fas fa-check"></i> Input with success
+      </label>
+      <input
+        type="text"
+        class="form-control is-valid"
+        id="inputSuccess"
+        placeholder="Enter ..."
+      />
+    </div> -->
+    <div class="row">
+      <div class="col-sm-6">
+        <!-- text input -->
+        <button type="submit" class="btn btn-warning mr-2 px-4">
+          Update
+        </button>
+      </div>
+    </div>
+  </form>
