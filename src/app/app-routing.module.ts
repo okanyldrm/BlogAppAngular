@@ -6,6 +6,7 @@ import { AdminFeatureUpdateComponent } from './admin-feature/admin-feature-updat
 import { AdminFirstComponent } from './admin-first/admin-first.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { BackendUpdateFormComponent } from './admin-service/admin-service-backend/backend-update-form/backend-update-form.component';
+import { FrontendUpdateFormComponent } from './admin-service/admin-service-frontend/frontend-update-form/frontend-update-form.component';
 import { AdminServiceComponent } from './admin-service/admin-service.component';
 import { AdminWorkComponent } from './admin-work/admin-work.component';
 import { AdminComponent } from './admin/admin.component';
@@ -57,6 +58,7 @@ const routes: Routes = [
       { path: 'blog', component: AdminBlogComponent },
       { path: 'home/feature/:featureId', component: AdminFeatureUpdateComponent },
       { path: 'service/backend/:backendId', component: BackendUpdateFormComponent },
+      { path: 'service/frontend/:frontendId', component: FrontendUpdateFormComponent },
      
     ],
   },
