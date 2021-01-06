@@ -15,19 +15,21 @@
                   <!-- text input -->
                   <div class="form-group">
                     <label>Title</label>
-                    <input class="form-control" />
+                    <input class="form-control" [(ngModel)]="databasepage.title" name="title" id="title" />
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>Mini Title</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" [(ngModel)]="databasepage.miniTitle" name="miniTitle" id="miniTitle" />
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>Content</label>
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea class="form-control" rows="3"
+                    [(ngModel)]="databasepage.content" name="content" id="content"
+                    ></textarea>
                   </div>
                 </div>
               </div>

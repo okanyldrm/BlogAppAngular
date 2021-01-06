@@ -1,5 +1,5 @@
 export class DatabasePage{
-    Id!:number;
+    id!:number;
     title!:string;
     miniTitle!:string;
     content!:string;
