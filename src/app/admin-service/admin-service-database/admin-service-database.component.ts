@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabasePage } from 'src/app/models/DatabasePage';
+import { DatabasepageService } from 'src/app/services/databasepage.service';
 
 @Component({
   selector: 'app-admin-service-database',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminServiceDatabaseComponent implements OnInit {
 
-  constructor() { }
+  databasepage:DatabasePage = new DatabasePage();
+
+  constructor(private databasepageService:DatabasepageService) { }
 
   ngOnInit(): void {
+
+    this.databasepageService.getdatabasepage().subscribe((data)=>this.databasepage=data);
+
+
   }
 
 }
