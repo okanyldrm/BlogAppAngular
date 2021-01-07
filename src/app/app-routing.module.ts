@@ -26,6 +26,7 @@ import { NavComponent } from './nav/nav.component';
 import { SideComponent } from './side/side.component';
 
 const routes: Routes = [
+
   {
     path: 'client',
     component: ClientComponent,
@@ -59,7 +60,6 @@ const routes: Routes = [
       { path: 'home/feature/:featureId', component: AdminFeatureUpdateComponent },
       { path: 'service/backend/:backendId', component: BackendUpdateFormComponent },
       { path: 'service/frontend/:frontendId', component: FrontendUpdateFormComponent },
-     
     ],
   },
 
@@ -81,6 +81,8 @@ const routes: Routes = [
   // {path:'blog/:blogId', component:ClientBlogPageComponent},
   // {path:'contact', component:ClientContactComponent},
   // {path:'', component:ClientHomeComponent,pathMatch:'full'},
+
+
 ];
 
 @NgModule({

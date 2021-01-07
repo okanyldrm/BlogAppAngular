@@ -9,7 +9,7 @@
             <div class="col-md-1"></div>
           </div>
           <div class="card-body">
-            <form action="">
+            <form #frontendpageupdateform="ngForm" (ngSubmit)="updateFrom(frontendpageupdateform)">
               <div class="row">
                 <div class="col-sm-6">
                   <!-- text input -->

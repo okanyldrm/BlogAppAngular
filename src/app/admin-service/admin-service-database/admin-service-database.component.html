@@ -9,26 +9,28 @@
             <div class="col-md-1"></div>
           </div>
           <div class="card-body">
-            <form action="">
+
+
+            <form #updatedatabasepage="ngForm" (ngSubmit)="updateFrom(updatedatabasepage)" >
               <div class="row">
                 <div class="col-sm-6">
                   <!-- text input -->
                   <div class="form-group">
                     <label>Title</label>
-                    <input class="form-control" [(ngModel)]="databasepage.title" name="title" id="title" />
+                    <input class="form-control" #title="ngModel" [(ngModel)]="databasepage.title" name="title" id="title" />
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>Mini Title</label>
-                    <input type="text" class="form-control" [(ngModel)]="databasepage.miniTitle" name="miniTitle" id="miniTitle" />
+                    <input type="text" class="form-control" #miniTitle="ngModel" [(ngModel)]="databasepage.miniTitle" name="miniTitle" id="miniTitle" />
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>Content</label>
                     <textarea class="form-control" rows="3"
-                    [(ngModel)]="databasepage.content" name="content" id="content"
+                    [(ngModel)]="databasepage.content" #content="ngModel" name="content" id="content"
                     ></textarea>
                   </div>
                 </div>
@@ -42,6 +44,11 @@
                 </div>
               </div>
             </form>
+
+
+
+
+
             <br />
             <table class="table table-bordered">
               <thead>
