@@ -9,49 +9,22 @@
                 </p>
             </div>
         </div>
-        <div class="row row-pb-md animate-box">
+
+        <div *ngFor="let database of databases" class="row row-pb-md animate-box">
             <div class="col-md-6 col-md-push-6">
                 <div class="desc">
-                    <h3>Mission &amp; Vission</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
+                    <h3>{{database.title}} &amp; Vission</h3>
+                    <p>{{database.content}}</p>
                     <p>Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci rem dolorem nesciunt perferendis quae amet deserunt eum labore quidem minima.</p>
                 </div>
             </div>
             <div class="col-md-6 col-md-pull-6">
-                <img class="img-responsive" src="https://www.mshowto.org/images/articles/2019/05/sqlserver.png" alt="about">
-            </div>
-
-        </div>
-
-        <div class="row row-pb-md animate-box">
-            <div class="col-md-6 col-md-push-6">
-                <div class="desc">
-                    <h3>Mission &amp; Vission</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
-                    <p>Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci rem dolorem nesciunt perferendis quae amet deserunt eum labore quidem minima.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-md-pull-6">
-                <img class="img-responsive" src="https://blog.trescomatres.com/wp-content/uploads/2017/03/banner-mysql.jpg" alt="about">
+                <img class="img-responsive" src="{{database.imageUrl}}" alt="about">
             </div>
 
         </div>
 
 
-
-        <div class="row row-pb-md animate-box">
-            <div class="col-md-6 col-md-push-6">
-                <div class="desc">
-                    <h3>Mission &amp; Vission</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
-                    <p>Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci rem dolorem nesciunt perferendis quae amet deserunt eum labore quidem minima.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-md-pull-6">
-                <img class="img-responsive" src="https://cdn.ait.in.ua/wp-content/uploads/2019/09/Limity-pamyati-dlya-Redis.png" alt="about">
-            </div>
-
-        </div>
 
 
     </div>

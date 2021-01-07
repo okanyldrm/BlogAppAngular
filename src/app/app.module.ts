@@ -42,6 +42,8 @@ import { AdminServiceDatabaseComponent } from './admin-service/admin-service-dat
 import { AdminServiceDevopsComponent } from './admin-service/admin-service-devops/admin-service-devops.component';
 import { BackendUpdateFormComponent } from './admin-service/admin-service-backend/backend-update-form/backend-update-form.component';
 import { FrontendUpdateFormComponent } from './admin-service/admin-service-frontend/frontend-update-form/frontend-update-form.component';
+import { DatabaseUpdateFormComponent } from './admin-service/admin-service-database/database-update-form/database-update-form.component';
+
 
 
 
@@ -85,7 +87,8 @@ import { FrontendUpdateFormComponent } from './admin-service/admin-service-front
     AdminServiceDatabaseComponent,
     AdminServiceDevopsComponent,
     BackendUpdateFormComponent,
-    FrontendUpdateFormComponent
+    FrontendUpdateFormComponent,
+    DatabaseUpdateFormComponent
   
   
   ],
