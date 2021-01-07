@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Database } from 'src/app/models/Database';
 import { DatabasePage } from 'src/app/models/DatabasePage';
+import { DatabaseService } from 'src/app/services/database.service';
 import { DatabasepageService } from 'src/app/services/databasepage.service';
 import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 
@@ -11,16 +13,22 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 })
 export class AdminServiceDatabaseComponent implements OnInit {
   databasepage: DatabasePage = new DatabasePage();
+  databases!: Database[];
 
   constructor(
     private databasepageService: DatabasepageService,
-    private sweetalert: Sweetalert2Service
+    private sweetalert: Sweetalert2Service,
+    private databaseService: DatabaseService
   ) {}
 
   ngOnInit(): void {
     this.databasepageService
       .getdatabasepage()
       .subscribe((data) => (this.databasepage = data));
+
+    this.databaseService
+      .getalldatabase()
+      .subscribe((data) => (this.databases = data));
   }
 
   updateFrom(form: NgForm) {
