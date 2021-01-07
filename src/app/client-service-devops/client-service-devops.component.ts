@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DevopsPage } from '../models/DevopsPage';
+import { DevopspageService } from '../services/devopspage.service';
 
 @Component({
   selector: 'app-client-service-devops',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientServiceDevopsComponent implements OnInit {
 
-  constructor() { }
+devopspage:DevopsPage = new DevopsPage();
+
+  constructor(private devopspageService:DevopspageService) { }
 
   ngOnInit(): void {
+
+    this.devopspageService.getdevopspage().subscribe((data)=>this.devopspage=data);
   }
 
 }
