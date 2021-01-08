@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AboutPage } from '../models/AboutPage';
+import { AboutpageService } from '../services/aboutpage.service';
 
 @Component({
   selector: 'app-client-about',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientAboutComponent implements OnInit {
 
-  constructor() { }
+  aboutpage:AboutPage = new AboutPage();
+  constructor(private aboutpageService:AboutpageService) { }
 
   ngOnInit(): void {
+
+      this.aboutpageService.getaboutpage().subscribe((data)=>this.aboutpage=data);
+
   }
 
 }
