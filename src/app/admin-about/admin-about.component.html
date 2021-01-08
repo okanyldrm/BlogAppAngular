@@ -5,7 +5,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <form role="form">
+        <form role="form" #updateaboutpageform="ngForm" (ngSubmit)="updateform(updateaboutpageform)">
 
            
             <div class="row">
@@ -13,36 +13,54 @@
                     <!-- text input -->
                     <div class="form-group">
                         <label>Title</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" class="form-control" placeholder="Enter ..." #title="ngModel" [(ngModel)]="aboutpage.title" name="title" id="title">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <!-- text input -->
                     <div class="form-group">
                         <label>Mini Title</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" class="form-control" placeholder="Enter ..." #miniTitle="ngModel" [(ngModel)]="aboutpage.miniTitle" name="miniTitle" id="miniTitle">
                     </div>
                 </div>
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label>About Me</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <label>Content</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..."
+                        #content="ngModel" [(ngModel)]="aboutpage.content" name="content" id="content"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label> Title-2</label>
+                        <input type="text" class="form-control" placeholder="Enter ..." #title2="ngModel" [(ngModel)]="aboutpage.title2" name="title2" id="title2">
                     </div>
                 </div>
 
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label>Mission/Vission</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <label>Content-2</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..."
+                        #content2="ngModel" [(ngModel)]="aboutpage.content2" name="content2" id="content2"
+                        
+                        ></textarea>
                     </div>
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-10">
+                    <!-- text input -->
                     <div class="form-group">
-                        <label>Photo</label>
-                        <input type="file" class="form-control" placeholder="Enter ...">
+                        <label> Image URL </label>
+                        <input type="text" class="form-control" placeholder="Enter ..."
+                        #imageUrl="ngModel" [(ngModel)]="aboutpage.imageUrl" name="imageUrl" id="imageUrl"
+                        >
                     </div>
                 </div>
+
+
 
             </div>
             <div class="row">
