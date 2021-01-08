@@ -7,6 +7,7 @@ import { AdminFirstComponent } from './admin-first/admin-first.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { BackendUpdateFormComponent } from './admin-service/admin-service-backend/backend-update-form/backend-update-form.component';
 import { DatabaseUpdateFormComponent } from './admin-service/admin-service-database/database-update-form/database-update-form.component';
+import { DevopsUpdateFormComponent } from './admin-service/admin-service-devops/devops-update-form/devops-update-form.component';
 import { FrontendUpdateFormComponent } from './admin-service/admin-service-frontend/frontend-update-form/frontend-update-form.component';
 import { AdminServiceComponent } from './admin-service/admin-service.component';
 import { AdminWorkComponent } from './admin-work/admin-work.component';
@@ -20,7 +21,6 @@ import { ClientServiceBackendComponent } from './client-service-backend/client-s
 import { ClientServiceDatabaseComponent } from './client-service-database/client-service-database.component';
 import { ClientServiceDevopsComponent } from './client-service-devops/client-service-devops.component';
 import { ClientServiceFrontendComponent } from './client-service-frontend/client-service-frontend.component';
-import { ClientServiceComponent } from './client-service/client-service.component';
 import { ClientWorkComponent } from './client-work/client-work.component';
 import { ClientComponent } from './client/client.component';
 import { NavComponent } from './nav/nav.component';
@@ -62,6 +62,8 @@ const routes: Routes = [
       { path: 'service/backend/:backendId', component: BackendUpdateFormComponent },
       { path: 'service/frontend/:frontendId', component: FrontendUpdateFormComponent },
       { path: 'service/database/:databaseId', component: DatabaseUpdateFormComponent },
+      { path: 'service/devops/:devopsId', component: DevopsUpdateFormComponent },
+    
     ],
   },
 

@@ -10,33 +10,20 @@
             </div>
         </div>
         
-        <div class="row row-pb-md animate-box">
+        <div *ngFor="let devops of devopses" class="row row-pb-md animate-box">
             <div class="col-md-6 col-md-push-6">
                 <div class="desc">
-                    <h3>Mission &amp; Vission</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
-                    <p>Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci rem dolorem nesciunt perferendis quae amet deserunt eum labore quidem minima.</p>
+                    <h3>{{devops.title}} &amp; Vission</h3>
+                    <p>{{devops.content}}</p>
+                    
                 </div>
             </div>
             <div class="col-md-6 col-md-pull-6">
-                <img class="img-responsive" src="https://oneclick-cloud.com/wp-content/uploads/2019/09/Bigstock_-139961875-Docker-Emblem.-A-Blue-Whale-With-Several-Containers.-e1574090673987.jpg" alt="about">
+                <img class="img-responsive" src="{{devops.imageUrl}}" alt="about">
             </div>
-
         </div>
 
-        <div class="row row-pb-md animate-box">
-            <div class="col-md-6 col-md-push-6">
-                <div class="desc">
-                    <h3>Mission &amp; Vission</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
-                    <p>Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci rem dolorem nesciunt perferendis quae amet deserunt eum labore quidem minima.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-md-pull-6">
-                <img class="img-responsive" src="https://www.webtekno.com/images/editor/default/0002/76/1674678e8b51d708035a9bdad3bfc16dc9be9aa8.jpeg" alt="about">
-            </div>
-
-        </div>
+       
 
 
     </div>
