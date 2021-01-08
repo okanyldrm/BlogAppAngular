@@ -11,6 +11,7 @@ import { DevopsUpdateFormComponent } from './admin-service/admin-service-devops/
 import { FrontendUpdateFormComponent } from './admin-service/admin-service-frontend/frontend-update-form/frontend-update-form.component';
 import { AdminServiceComponent } from './admin-service/admin-service.component';
 import { AdminWorkComponent } from './admin-work/admin-work.component';
+import { WorkUpdateFormComponent } from './admin-work/work-update-form/work-update-form.component';
 import { AdminComponent } from './admin/admin.component';
 import { ClientAboutComponent } from './client-about/client-about.component';
 import { ClientBlogPageComponent } from './client-blog-page/client-blog-page.component';
@@ -63,6 +64,7 @@ const routes: Routes = [
       { path: 'service/frontend/:frontendId', component: FrontendUpdateFormComponent },
       { path: 'service/database/:databaseId', component: DatabaseUpdateFormComponent },
       { path: 'service/devops/:devopsId', component: DevopsUpdateFormComponent },
+      { path: 'work/jop/:workId', component: WorkUpdateFormComponent },
     
     ],
   },

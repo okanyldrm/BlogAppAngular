@@ -44,6 +44,7 @@ import { BackendUpdateFormComponent } from './admin-service/admin-service-backen
 import { FrontendUpdateFormComponent } from './admin-service/admin-service-frontend/frontend-update-form/frontend-update-form.component';
 import { DatabaseUpdateFormComponent } from './admin-service/admin-service-database/database-update-form/database-update-form.component';
 import { DevopsUpdateFormComponent } from './admin-service/admin-service-devops/devops-update-form/devops-update-form.component';
+import { WorkUpdateFormComponent } from './admin-work/work-update-form/work-update-form.component';
 
 
 
@@ -90,7 +91,8 @@ import { DevopsUpdateFormComponent } from './admin-service/admin-service-devops/
     BackendUpdateFormComponent,
     FrontendUpdateFormComponent,
     DatabaseUpdateFormComponent,
-    DevopsUpdateFormComponent
+    DevopsUpdateFormComponent,
+    WorkUpdateFormComponent
   
   
   ],

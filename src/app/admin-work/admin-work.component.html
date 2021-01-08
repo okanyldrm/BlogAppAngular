@@ -54,7 +54,7 @@
                 <h3 class="card-title">Jops</h3>
               </div>
               <div class="col-md-1">
-                <button class="btn btn-success btn-sm">Add <i>+</i></button>
+                <button class="btn btn-success btn-sm">Add Jop <i>+</i></button>
               </div>
             </div>
           </div>
@@ -71,9 +71,9 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr *ngFor="let work of works">
                   <td>1.</td>
-                  <td>Cezeri Mekatronik</td>
+                  <td>{{work.title}}</td>
                   <td>
                     FullStack
                    
@@ -82,7 +82,12 @@
                   <td>
                     <div class="row">
                       <div class="col-sm-6">
-                        <button class="btn btn-warning btn-sm">UPT</button>
+                        <a routerLink="jop/{{work.id}}">
+                          <button class="btn btn-warning btn-sm">UPT</button>
+                        </a>
+
+                       
+
                       </div>
 
                       <div class="col-sm-6">
