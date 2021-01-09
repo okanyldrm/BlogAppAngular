@@ -47,6 +47,10 @@ import { DevopsUpdateFormComponent } from './admin-service/admin-service-devops/
 import { WorkUpdateFormComponent } from './admin-work/work-update-form/work-update-form.component';
 
 
+import { AdminChartsLearningtechComponent } from './admin-charts-learningtech/admin-charts-learningtech.component';
+import { AdminInfoboxComponent } from './admin-infobox/admin-infobox.component';
+
+
 
 
 
@@ -92,7 +96,9 @@ import { WorkUpdateFormComponent } from './admin-work/work-update-form/work-upda
     FrontendUpdateFormComponent,
     DatabaseUpdateFormComponent,
     DevopsUpdateFormComponent,
-    WorkUpdateFormComponent
+    WorkUpdateFormComponent,
+    AdminChartsLearningtechComponent,
+    AdminInfoboxComponent
   
   
   ],
@@ -103,7 +109,8 @@ import { WorkUpdateFormComponent } from './admin-work/work-update-form/work-upda
     FormsModule,
     NgbModule,
     NgbPaginationModule,
-    NgbAlertModule
+    NgbAlertModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
