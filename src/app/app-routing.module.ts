@@ -46,12 +46,13 @@ const routes: Routes = [
       { path: '', component: ClientHomeComponent, pathMatch: 'full' },
     ],
   },
-
+ 
   {
     path: 'admin',
     component: AdminComponent,
     children: [
       { path: '', component: AdminFirstComponent },
+      { path: 'firstpage', component: AdminFirstComponent },
       { path: 'nav', component: NavComponent },
       { path: 'side', component: SideComponent },
       { path: 'home', component: AdminHomeComponent },
@@ -70,10 +71,6 @@ const routes: Routes = [
   },
 
 
-  // {
-  //   path: '',
-  //   component: AdminComponent, pathMatch:'full'
-  // },
 
 
   // {path:'home', component:ClientHomeComponent},

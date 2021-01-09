@@ -15,6 +15,10 @@ export class SideComponent implements OnInit {
   activework = false;
   activeabout = false;
   activeblog = false;
+  activepages = false;
+  menuopen = false;
+  activehomepage=true;
+  
 
   ngOnInit(): void {}
 
@@ -53,4 +57,27 @@ export class SideComponent implements OnInit {
     this.activeabout = false;
     this.activeblog = true;
   }
+
+  activebloglink() {
+    this.activehome = false;
+    this.activeservice = false;
+    this.activework = false;
+    this.activeabout = false;
+    this.activeblog = false;
+    this.activepages = false;
+    this.activehomepage=true;
+   
+  }
+
+  activepagesf() {
+      this.activepages = true;
+      this.activehomepage=false;
+  }
+
+  activehomepagef(){
+    this.activepages = false;
+    this.activehomepage=true;
+  }
+
+ 
 }

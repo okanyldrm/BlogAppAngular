@@ -9,7 +9,17 @@ export class NavComponent implements OnInit {
 
   constructor() { }
 
+  pushmenu=false;
+
   ngOnInit(): void {
   }
+
+
+
+
+
+
+
+
 
 }

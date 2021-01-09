@@ -8,9 +8,14 @@ import * as moment from 'moment';
 })
 export class AppComponent {
   title = 'blogApp';
-
+  sidebarclosed=true;
   onActivate(event:any) {
     window.scroll(0,0);
    
 }
+
+
+
+
+
 }
