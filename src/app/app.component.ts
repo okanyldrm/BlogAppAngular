@@ -1,5 +1,6 @@
+import { HostListener } from '@angular/core';
 import { Component } from '@angular/core';
-import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,22 @@ import * as moment from 'moment';
 })
 export class AppComponent {
   title = 'blogApp';
-  sidebarclosed=true;
+
+  // sidebaropen=true;
+  // sidebarcollapse=false;
+
   onActivate(event:any) {
     window.scroll(0,0);
    
 }
+
+
+// @HostListener('document:click', ['$event'])
+// documentClick(event: MouseEvent,) {
+//   this.sidebaropen=false;
+//   this.sidebarcollapse=true;
+  
+// }
 
 
 
