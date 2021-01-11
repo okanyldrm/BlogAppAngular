@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminAboutComponent } from './admin-about/admin-about.component';
+import { AdminBlogUpdateFormComponent } from './admin-blog/admin-blog-update-form/admin-blog-update-form.component';
 import { AdminBlogComponent } from './admin-blog/admin-blog.component';
 import { AdminFeatureUpdateComponent } from './admin-feature/admin-feature-update/admin-feature-update.component';
 import { AdminFirstComponent } from './admin-first/admin-first.component';
@@ -66,6 +67,7 @@ const routes: Routes = [
       { path: 'service/database/:databaseId', component: DatabaseUpdateFormComponent },
       { path: 'service/devops/:devopsId', component: DevopsUpdateFormComponent },
       { path: 'work/jop/:workId', component: WorkUpdateFormComponent },
+      { path: 'blog/blog/:blogId', component: AdminBlogUpdateFormComponent },
     
     ],
   },

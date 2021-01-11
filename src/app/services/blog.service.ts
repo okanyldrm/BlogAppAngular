@@ -9,6 +9,7 @@ import { Blog } from '../models/Blog';
 export class BlogService {
 path="http://localhost:5000/api/blog/getallblog";
 path2="http://localhost:5000/api/blog/getbyblog";
+path3="http://localhost:5000/api/blog/updateblog";
   constructor(private http:HttpClient) { }
 
 getallblog():Observable<Blog[]>{
@@ -25,6 +26,11 @@ getbyblog(blogId:any):Observable<Blog>{
 
   return this.http.get<Blog>(newpath)
 
+}
+
+updateblog(blog:Blog):Observable<Blog>{
+
+  return this.http.post<Blog>(this.path3,blog);
 }
 
 

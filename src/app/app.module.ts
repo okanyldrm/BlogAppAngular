@@ -45,10 +45,10 @@ import { FrontendUpdateFormComponent } from './admin-service/admin-service-front
 import { DatabaseUpdateFormComponent } from './admin-service/admin-service-database/database-update-form/database-update-form.component';
 import { DevopsUpdateFormComponent } from './admin-service/admin-service-devops/devops-update-form/devops-update-form.component';
 import { WorkUpdateFormComponent } from './admin-work/work-update-form/work-update-form.component';
-
-
 import { AdminChartsLearningtechComponent } from './admin-charts-learningtech/admin-charts-learningtech.component';
 import { AdminInfoboxComponent } from './admin-infobox/admin-infobox.component';
+import { AdminBlogUpdateFormComponent } from './admin-blog/admin-blog-update-form/admin-blog-update-form.component';
+
 
 
 
@@ -98,7 +98,8 @@ import { AdminInfoboxComponent } from './admin-infobox/admin-infobox.component';
     DevopsUpdateFormComponent,
     WorkUpdateFormComponent,
     AdminChartsLearningtechComponent,
-    AdminInfoboxComponent
+    AdminInfoboxComponent,
+    AdminBlogUpdateFormComponent
   
   
   ],

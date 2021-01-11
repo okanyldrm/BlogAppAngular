@@ -5,7 +5,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <form role="form" #updateblogpageform="ngForm" (ngSubmit)="updateform(updateblogpageform)">
+        <form  #updateblogpageform="ngForm" (ngSubmit)="updateform(updateblogpageform)">
 
            
             <div class="row">
@@ -70,18 +70,22 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+
+                      <tr *ngFor="let blog of blogs">
                         <td>1.</td>
-                        <td>Blog-Title-1</td>
+                        <td>{{blog.title}}</td>
                         <td>
-                            Publish
+                           {{blog.content  | slice: 0:60 }}...
                          
                         </td>
                         
                         <td>
                           <div class="row">
                             <div class="col-sm-6">
-                              <button class="btn btn-warning btn-sm">UPT</button>
+                              <a routerLink="blog/{{blog.id}}">
+                                <button class="btn btn-warning btn-sm">UPT</button>
+                              </a>
+                             
                             </div>
       
                             <div class="col-sm-6">
@@ -90,6 +94,7 @@
                           </div>
                         </td>
                       </tr>
+
                       
                     </tbody>
                   </table>
