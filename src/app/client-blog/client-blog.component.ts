@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogPage } from '../models/BlogPage';
+import { BlogpageService } from '../services/blogpage.service';
 
 @Component({
   selector: 'app-client-blog',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientBlogComponent implements OnInit {
 
-  constructor() { }
+  constructor(private blogpageService:BlogpageService) { }
+
+
+  blogpage!:BlogPage;
 
   ngOnInit(): void {
+
+      this.blogpageService.getblogpage().subscribe((data)=>this.blogpage=data);
+
   }
 
 }
