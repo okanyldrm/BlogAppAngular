@@ -5,7 +5,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <form role="form">
+        <form role="form" #updateblogpageform="ngForm" (ngSubmit)="updateform(updateblogpageform)">
 
            
             <div class="row">
@@ -13,20 +13,22 @@
                     <!-- text input -->
                     <div class="form-group">
                         <label>Title</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" class="form-control" placeholder="Enter ..." #title="ngModel" [(ngModel)]="blogpage.title" name="title" id="title">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <!-- text input -->
                     <div class="form-group">
                         <label>Mini Title</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" class="form-control" placeholder="Enter ..." #miniTitle="ngModel" [(ngModel)]="blogpage.miniTitle" name="miniTitle" id="miniTitle">
                     </div>
                 </div>
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label>Content</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..."
+                        #content="ngModel" [(ngModel)]="blogpage.content" name="content" id="content"
+                        ></textarea>
                     </div>
                 </div>
                 <div class="row">
