@@ -10,6 +10,8 @@ export class FeatureService {
   path = "http://localhost:5000/api/feature/features";
   path2 = "http://localhost:5000/api/Feature/getbyfeature"
   path3 = "http://localhost:5000/api/Feature/updatefeature";
+  path4 = "http://localhost:5000/api/Feature/addfeature";
+  path5 = "http://localhost:5000/api/Feature/deletefeature";
   constructor(private http:HttpClient) { }
 
  
@@ -30,6 +32,18 @@ getByFeatures(featureId:any):Observable<Feature>{
  updateFeature(feature:Feature):Observable<Feature>{
   return this.http.post<Feature>(this.path3,feature);
 }
- 
+
+addFeature(feature:Feature):Observable<Feature>{
+return this.http.post<Feature>(this.path4,feature);
+}
+
+ deleteFeature(featureId:any):Observable<Feature>{
+  let newpath = this.path5;
+  if(featureId){
+    newpath += '/' + featureId;
+  }
+   return this.http.delete<Feature>(newpath);
+ }
+
 
 }

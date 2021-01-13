@@ -10,6 +10,8 @@ export class BackendService {
   path = 'http://localhost:5000/api/backend/getallbackend';
   path2 = 'http://localhost:5000/api/backend/getbackend';
   path3='http://localhost:5000/api/backend/updatebackend';
+  path4='http://localhost:5000/api/backend/addbackend';
+  path5='http://localhost:5000/api/backend/deletebackend';
   constructor(private http: HttpClient) {}
 
   getbackendall(): Observable<Backend[]> {
@@ -26,5 +28,17 @@ export class BackendService {
       newpath += '/' + backendId;
     }
     return this.http.get<Backend>(newpath);
+   }
+
+   addBackend(backend:Backend):Observable<Backend>{
+    return this.http.post<Backend>(this.path4,backend);
+   }
+   
+   deleteBackend(backendId:any):Observable<Backend>{
+    let newpath = this.path5;
+    if(backendId){
+      newpath += '/' + backendId;
+    }
+     return this.http.delete<Backend>(newpath);
    }
 }
