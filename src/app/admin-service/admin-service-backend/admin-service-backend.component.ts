@@ -30,5 +30,12 @@ this.sweetalert.fire("Güncelleme Başarılı");
 });
 }
 
+backenddelete(id:any){
+this.backendService.deleteBackend(id).subscribe((data)=>{
+  this.sweetalert.fire("Deleted");
+})
+
+}
+
 
 }

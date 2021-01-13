@@ -1,0 +1,64 @@
+
+<!-- general form elements -->
+<div class="card card-success">
+    <div class="card-header">
+      <h3 class="card-title">Add Feature</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+    
+        <form #addfeatureform="ngForm" #featureupdateform="ngForm" (ngSubmit)="addfeature(addfeatureform)"  >
+
+            <div class="row">
+              <div class="col-sm-8">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Title</label>
+                  <input   type="text" class="form-control" #title="ngModel" [(ngModel)]="feature.title" name="title" id="title" />
+                </div>
+              </div>
+            </div>
+        
+           
+        
+            <div class="form-group">
+              <label>Content</label>
+              <textarea
+                class="form-control"
+                rows="3"
+               
+                #content="ngModel" [(ngModel)]="feature.content" name="content" id="content"
+              ></textarea>
+            </div>
+        
+            <div class="row">
+                <div class="col-sm-8">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Icon</label>
+                    <input   type="text" class="form-control" #icon="ngModel" [(ngModel)]="feature.icon" name="icon" id="icon" />
+                  </div>
+                </div>
+              </div>
+           
+        
+           
+        
+            <div class="row">
+              <div class="col-sm-6">
+                <!-- text input -->
+                <button type="submit" class="btn btn-success mr-2 px-4">
+                  Add
+                </button>
+              </div>
+            </div>
+          </form>
+
+
+
+
+    </div>
+    <!-- /.card-body -->
+    
+  </div>
+  

@@ -25,6 +25,7 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+             
               //main-css
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
@@ -37,12 +38,17 @@
               "node_modules/admin-lte/plugins/fontawesome-free/css/all.css",
               "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.css",
               "node_modules/admin-lte/dist/css/adminlte.css",
-              "node_modules/admin-lte/plugins/jqvmap/jqvmap.min.css"
+              "node_modules/admin-lte/plugins/jqvmap/jqvmap.min.css",
+
+              //fullcalendar
+              "node_modules/@fullcalendar/common/main.css",
+              "node_modules/@fullcalendar/daygrid/main.css"
               
             ],
 
  
             "scripts": [
+              "node_modules/animejs/lib/anime.min.js",
               //main-scripts
               "src/shape/js/jquery.min.js",
               "node_modules/jquery-ui/ui/widget.js",

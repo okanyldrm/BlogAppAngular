@@ -18,6 +18,7 @@ export class SideComponent implements OnInit {
   activepages = false;
   menuopen = false;
   activehomepage=true;
+  activecalendar=false;
   
 
   ngOnInit(): void {}
@@ -28,6 +29,7 @@ export class SideComponent implements OnInit {
     this.activework = false;
     this.activeabout = false;
     this.activeblog = false;
+    this.activecalendar=false;
   }
   activeservicef() {
     this.activehome = false;
@@ -35,6 +37,7 @@ export class SideComponent implements OnInit {
     this.activework = false;
     this.activeabout = false;
     this.activeblog = false;
+    this.activecalendar=false;
   }
   activeworkf() {
     this.activehome = false;
@@ -42,6 +45,7 @@ export class SideComponent implements OnInit {
     this.activework = true;
     this.activeabout = false;
     this.activeblog = false;
+    this.activecalendar=false;
   }
   activeaboutf() {
     this.activehome = false;
@@ -49,6 +53,7 @@ export class SideComponent implements OnInit {
     this.activework = false;
     this.activeabout = true;
     this.activeblog = false;
+    this.activecalendar=false;
   }
   activeblogf() {
     this.activehome = false;
@@ -56,6 +61,7 @@ export class SideComponent implements OnInit {
     this.activework = false;
     this.activeabout = false;
     this.activeblog = true;
+    this.activecalendar=false;
   }
 
   activebloglink() {
@@ -66,17 +72,31 @@ export class SideComponent implements OnInit {
     this.activeblog = false;
     this.activepages = false;
     this.activehomepage=true;
+    this.activecalendar=false;
    
   }
 
   activepagesf() {
       this.activepages = true;
       this.activehomepage=false;
+      this.activecalendar=false;
   }
 
   activehomepagef(){
     this.activepages = false;
     this.activehomepage=true;
+    this.activecalendar=false;
+  }
+  activecalendarf(){
+    this.activehome = false;
+    this.activeservice = false;
+    this.activework = false;
+    this.activeabout = false;
+    this.activeblog = false;
+    this.activepages = false;
+    this.activehomepage=false;
+    this.activecalendar=true;
+
   }
 
  

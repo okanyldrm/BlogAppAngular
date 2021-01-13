@@ -3,9 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminAboutComponent } from './admin-about/admin-about.component';
 import { AdminBlogUpdateFormComponent } from './admin-blog/admin-blog-update-form/admin-blog-update-form.component';
 import { AdminBlogComponent } from './admin-blog/admin-blog.component';
+import { AdminFeatureAddComponent } from './admin-feature-add/admin-feature-add.component';
+
 import { AdminFeatureUpdateComponent } from './admin-feature/admin-feature-update/admin-feature-update.component';
 import { AdminFirstComponent } from './admin-first/admin-first.component';
+import { AdminFullcalendarComponent } from './admin-fullcalendar/admin-fullcalendar.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminServiceBackendAddComponent } from './admin-service-backend-add/admin-service-backend-add.component';
 import { BackendUpdateFormComponent } from './admin-service/admin-service-backend/backend-update-form/backend-update-form.component';
 import { DatabaseUpdateFormComponent } from './admin-service/admin-service-database/database-update-form/database-update-form.component';
 import { DevopsUpdateFormComponent } from './admin-service/admin-service-devops/devops-update-form/devops-update-form.component';
@@ -54,10 +58,13 @@ const routes: Routes = [
     children: [
       { path: '', component: AdminFirstComponent },
       { path: 'firstpage', component: AdminFirstComponent },
+      { path: 'fullcalendar', component: AdminFullcalendarComponent },
       { path: 'nav', component: NavComponent },
       { path: 'side', component: SideComponent },
       { path: 'home', component: AdminHomeComponent },
+      { path: 'home/feature/add', component: AdminFeatureAddComponent },
       { path: 'service', component: AdminServiceComponent },
+      { path: 'service/backend/add', component: AdminServiceBackendAddComponent },
       { path: 'work', component: AdminWorkComponent },
       { path: 'about', component: AdminAboutComponent },
       { path: 'blog', component: AdminBlogComponent },
@@ -68,6 +75,7 @@ const routes: Routes = [
       { path: 'service/devops/:devopsId', component: DevopsUpdateFormComponent },
       { path: 'work/jop/:workId', component: WorkUpdateFormComponent },
       { path: 'blog/blog/:blogId', component: AdminBlogUpdateFormComponent },
+      
     
     ],
   },

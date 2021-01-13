@@ -1,6 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
+//fullcalendar
+import { FullCalendarModule } from '@fullcalendar/angular'; 
+import dayGridPlugin from '@fullcalendar/daygrid'; 
+import interactionPlugin from '@fullcalendar/interaction';
+FullCalendarModule.registerPlugins([ 
+  dayGridPlugin,
+  interactionPlugin
+]);
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +42,11 @@ import { FormsModule }   from '@angular/forms';
 import { AdminFeatureComponent } from './admin-feature/admin-feature.component';
 import { AdminFeatureUpdateComponent } from './admin-feature/admin-feature-update/admin-feature-update.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
+
+
+
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { AdminFirstComponent } from './admin-first/admin-first.component';
 import { AdminServiceBackendComponent } from './admin-service/admin-service-backend/admin-service-backend.component';
@@ -48,6 +61,12 @@ import { WorkUpdateFormComponent } from './admin-work/work-update-form/work-upda
 import { AdminChartsLearningtechComponent } from './admin-charts-learningtech/admin-charts-learningtech.component';
 import { AdminInfoboxComponent } from './admin-infobox/admin-infobox.component';
 import { AdminBlogUpdateFormComponent } from './admin-blog/admin-blog-update-form/admin-blog-update-form.component';
+import { AdminFeatureAddComponent } from './admin-feature-add/admin-feature-add.component';
+import { AdminServiceBackendAddComponent } from './admin-service-backend-add/admin-service-backend-add.component';
+import { FullcalendarComponent } from './fullcalendar/fullcalendar.component';
+import { AdminFullcalendarComponent } from './admin-fullcalendar/admin-fullcalendar.component';
+
+
 
 
 
@@ -58,6 +77,7 @@ import { AdminBlogUpdateFormComponent } from './admin-blog/admin-blog-update-for
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     NavComponent,
     SideComponent,
@@ -99,7 +119,12 @@ import { AdminBlogUpdateFormComponent } from './admin-blog/admin-blog-update-for
     WorkUpdateFormComponent,
     AdminChartsLearningtechComponent,
     AdminInfoboxComponent,
-    AdminBlogUpdateFormComponent
+    AdminBlogUpdateFormComponent,
+    AdminFeatureAddComponent,
+    AdminServiceBackendAddComponent,
+    FullcalendarComponent,
+    AdminFullcalendarComponent
+    
   
   
   ],
@@ -111,9 +136,12 @@ import { AdminBlogUpdateFormComponent } from './admin-blog/admin-blog-update-for
     NgbModule,
     NgbPaginationModule,
     NgbAlertModule,
+    FullCalendarModule
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ NO_ERRORS_SCHEMA ]
+
 })
 export class AppModule { }
