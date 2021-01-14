@@ -34,7 +34,7 @@ export class AdminServiceFrontendComponent implements OnInit {
       .frontendpageupdate(this.frontendPage)
       .subscribe((data) => {
         this.sweetAlert.fire(
-          'Güncelleme Başarılı : ' + this.frontendPage.title
+          'Updated : Frontend Page '
         );
       });
   }

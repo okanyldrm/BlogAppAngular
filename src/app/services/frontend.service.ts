@@ -10,6 +10,7 @@ export class FrontendService {
 path="http://localhost:5000/api/frontend/getallfrontend";
 path2="http://localhost:5000/api/frontend/getbyidfrontend";
 path3="http://localhost:5000/api/frontend/updatefrontend";
+path4="http://localhost:5000/api/frontend/addfrontend";
 
   constructor(private http:HttpClient) { }
 
@@ -28,6 +29,10 @@ geybyidfrontend(frontendId:any):Observable<Frontend>{
 
 updatefrontend(frontend:Frontend):Observable<Frontend>{
 return this.http.post<Frontend>(this.path3,frontend);
+}
+
+addfrontend(frontend:Frontend):Observable<Frontend>{
+return this.http.post<Frontend>(this.path4,frontend);
 }
 
 }
