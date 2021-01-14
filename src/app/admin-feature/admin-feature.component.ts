@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Feature } from '../models/Feature';
 import { FeatureService } from '../services/feature.service';
 import { Sweetalert2Service } from '../services/sweetalert2.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-admin-feature',
@@ -11,10 +12,12 @@ import { Sweetalert2Service } from '../services/sweetalert2.service';
 export class AdminFeatureComponent implements OnInit {
   constructor(
     private featureService: FeatureService,
-    private sweetalert: Sweetalert2Service
+    private sweetalert: Sweetalert2Service,
+    private _location: Location
   ) {}
-
+  featureName!: string;
   features!: Feature[];
+  p: number = 1;
 
   ngOnInit(): void {
     this.featureService
@@ -24,8 +27,39 @@ export class AdminFeatureComponent implements OnInit {
 
   deleteFeature(id: any) {
     this.featureService.deleteFeature(id).subscribe((data) => {
-      this.sweetalert.fire('Deleted');
-      
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 400);
+
+      this.sweetalert.fire('Deleted ID : ' + id);
+
+     
     });
+  }
+
+  Search() {
+    if (this.featureName == '') {
+      this.ngOnInit();
+    } else {
+      this.features = this.features.filter((res) => {
+        return res.title
+          .toLocaleLowerCase()
+          .match(this.featureName.toLocaleLowerCase());
+      });
+    }
+  }
+
+  key: string = 'name';
+  reverse: boolean = false;
+  sort(key: any) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+
+  key2: string = 'id';
+  sortbyid(key: any) {
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 }

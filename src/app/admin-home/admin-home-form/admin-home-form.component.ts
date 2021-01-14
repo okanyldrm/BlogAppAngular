@@ -38,7 +38,7 @@ export class AdminHomeFormComponent implements OnInit {
     // console.log(form.value.title);
    
     this.homeservice.updateHomePage(this.homepage).subscribe((data) => {
-      this.sweetalert.fire('Güncelleme Başarılı');
+      this.sweetalert.fire('Updated : Home Page ' );
     });
   }
 
