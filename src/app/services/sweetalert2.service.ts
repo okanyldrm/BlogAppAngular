@@ -9,7 +9,7 @@ export class Sweetalert2Service {
 
   fire(message: string) {
     Swal.fire({
-      title: message,
+      title: message
     });
   }
 }

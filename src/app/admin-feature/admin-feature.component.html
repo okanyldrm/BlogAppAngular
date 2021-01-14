@@ -10,18 +10,35 @@
               </div>
               <div class="col-md-1">
                 <a routerLink="feature/add">
-                  <button class="btn btn-success btn-sm">Add <i>+ Feature</i></button>
+                  <button class="btn btn-success btn-sm">
+                    Add <i>+ Feature</i>
+                  </button>
                 </a>
               </div>
             </div>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
+            <div class="row">
+              <div class="col-sm-4">
+                <input
+                  class="form-control form-control-sm"
+                  type="text"
+                  placeholder="Search Feature"
+                  name="featureName"
+                  id="featureName"
+                  [(ngModel)]="featureName"
+                  (ngModelChange)="Search()"
+                />
+              </div>
+            </div>
+            <br />
+
             <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Feature Name</th>
+                  <th style="width: 100px" (click)="sortbyid('id')">ID  &nbsp; <i class="fa fa-sort"></i></th>
+                  <th (click)="sort('name')">Feature Name &nbsp; <i class="fa fa-sort"></i> </th>
                   <th>Content</th>
                   <th>İcon</th>
 
@@ -29,10 +46,10 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let feature of features">
-                  <td>1.</td>
-                  <td>{{ feature.title }}</td>
-                  <td>{{ feature.content }}</td>
+                <tr *ngFor="let feature of features | orderBy: key: reverse |paginate:{itemsPerPage:5, currentPage:p}">
+                  <td>{{feature.id}}</td>
+                  <td>{{ feature.title | slice: 0:30 }}</td>
+                  <td>{{ feature.content | slice: 0:30 }}...</td>
                   <td><i class="icon-eye"></i></td>
                   <td>
                     <div class="row">
@@ -43,19 +60,23 @@
                       </div>
 
                       <div class="col-sm-6">
-                        <a (click)="deleteFeature(feature.id)" >
-                        <button class="btn btn-danger btn-sm">DEL</button>
-                      </a>
+                        <a (click)="deleteFeature(feature.id)">
+                          <button class="btn btn-danger btn-sm">DEL</button>
+                        </a>
                       </div>
                     </div>
                   </td>
                 </tr>
               </tbody>
+             
             </table>
           </div>
+          
           <div class="card-footer clearfix">
+           
             <ul class="pagination pagination-sm m-0 float-right">
-              <li class="page-item">
+              <pagination-controls (pageChange)="p= $event"> </pagination-controls>
+              <!-- <li class="page-item">
                 <a class="page-link" href="#">&laquo;</a>
               </li>
               <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -63,7 +84,7 @@
               <li class="page-item"><a class="page-link" href="#">3</a></li>
               <li class="page-item">
                 <a class="page-link" href="#">&raquo;</a>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>

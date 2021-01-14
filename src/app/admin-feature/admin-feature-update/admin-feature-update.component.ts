@@ -43,7 +43,7 @@ export class AdminFeatureUpdateComponent implements OnInit {
     // console.log(form.value.title);
    
     this.featureService.updateFeature(this.feature).subscribe((data) => {
-      this.sweetalert.fire('Güncelleme Başarılı');
+      this.sweetalert.fire('Updated Feature : '+ this.feature.title);
     });
     this.router.navigate(['/admin/home']);
   }

@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Backend } from 'src/app/models/Backend';
 import { BackendService } from 'src/app/services/backend.service';
 import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-backend-update-form',
@@ -14,7 +16,8 @@ export class BackendUpdateFormComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private backendService: BackendService,
-    private sweetAlert: Sweetalert2Service
+    private sweetAlert: Sweetalert2Service,
+    private router : Router
   ) {}
 
   backend: Backend = new Backend();
@@ -29,7 +32,8 @@ export class BackendUpdateFormComponent implements OnInit {
 
   updateform(form: NgForm) {
     this.backendService.updatebackend(this.backend).subscribe((data) => {
-      this.sweetAlert.fire('güncelleme Başarılı');
+      this.sweetAlert.fire('Updated Backend : '+ this.backend.title);
     });
+    this.router.navigate(['/admin/service']);
   }
 }
