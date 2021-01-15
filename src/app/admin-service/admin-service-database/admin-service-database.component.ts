@@ -14,6 +14,8 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 export class AdminServiceDatabaseComponent implements OnInit {
   databasepage: DatabasePage = new DatabasePage();
   databases!: Database[];
+  databaseName!: string;
+  pdatabase: number = 1;
 
   constructor(
     private databasepageService: DatabasepageService,
@@ -44,5 +46,25 @@ this.databaseService.deletedatabase(databaseId).subscribe((data)=>{
 
   this.sweetalert.toast("Deleted ID : "+databaseId,3000);
 })
+  }
+  
+  SearchDatabase() {
+    if (this.databaseName == '') {
+      this.ngOnInit();
+    } else {
+      this.databases = this.databases.filter((res) => {
+        return res.title
+          .toLocaleLowerCase()
+          .match(this.databaseName.toLocaleLowerCase());
+      });
+    }
+  }
+
+  
+  key: string = 'id';
+  reverse: boolean = false;
+  sortbyid(key: any) {
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 }
