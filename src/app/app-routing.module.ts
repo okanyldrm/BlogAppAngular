@@ -10,6 +10,7 @@ import { AdminFirstComponent } from './admin-first/admin-first.component';
 import { AdminFullcalendarComponent } from './admin-fullcalendar/admin-fullcalendar.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminServiceBackendAddComponent } from './admin-service-backend-add/admin-service-backend-add.component';
+import { AdminServiceDatabaseAddComponent } from './admin-service-database-add/admin-service-database-add.component';
 import { AdminServiceFrontendAddComponent } from './admin-service-frontend-add/admin-service-frontend-add.component';
 import { BackendUpdateFormComponent } from './admin-service/admin-service-backend/backend-update-form/backend-update-form.component';
 import { DatabaseUpdateFormComponent } from './admin-service/admin-service-database/database-update-form/database-update-form.component';
@@ -67,6 +68,7 @@ const routes: Routes = [
       { path: 'service', component: AdminServiceComponent },
       { path: 'service/backend/add', component: AdminServiceBackendAddComponent },
       { path: 'service/frontend/add', component: AdminServiceFrontendAddComponent },
+      { path: 'service/database/add', component: AdminServiceDatabaseAddComponent },
       { path: 'work', component: AdminWorkComponent },
       { path: 'about', component: AdminAboutComponent },
       { path: 'blog', component: AdminBlogComponent },
