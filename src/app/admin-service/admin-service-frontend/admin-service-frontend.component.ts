@@ -34,8 +34,16 @@ export class AdminServiceFrontendComponent implements OnInit {
       .frontendpageupdate(this.frontendPage)
       .subscribe((data) => {
         this.sweetAlert.fire(
-          'Güncelleme Başarılı : ' + this.frontendPage.title
+          'Updated : Frontend Page '
         );
       });
+  }
+  deletefrontend(frontendId:any){
+    this.frontendService.deletefrontend(frontendId).subscribe((data)=>{
+      setTimeout(() => {
+        window.location.reload();
+      }, 400);
+      this.sweetAlert.fire("Deleted ID : "+frontendId)
+    })
   }
 }

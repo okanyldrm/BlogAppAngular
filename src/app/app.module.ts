@@ -70,6 +70,7 @@ import { AdminFeatureAddComponent } from './admin-feature-add/admin-feature-add.
 import { AdminServiceBackendAddComponent } from './admin-service-backend-add/admin-service-backend-add.component';
 import { FullcalendarComponent } from './fullcalendar/fullcalendar.component';
 import { AdminFullcalendarComponent } from './admin-fullcalendar/admin-fullcalendar.component';
+import { AdminServiceFrontendAddComponent } from './admin-service-frontend-add/admin-service-frontend-add.component';
 
 
 
@@ -128,7 +129,8 @@ import { AdminFullcalendarComponent } from './admin-fullcalendar/admin-fullcalen
     AdminFeatureAddComponent,
     AdminServiceBackendAddComponent,
     FullcalendarComponent,
-    AdminFullcalendarComponent
+    AdminFullcalendarComponent,
+    AdminServiceFrontendAddComponent
     
   
   
