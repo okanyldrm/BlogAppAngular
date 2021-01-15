@@ -30,6 +30,7 @@ export class SideComponent implements OnInit {
     this.activeabout = false;
     this.activeblog = false;
     this.activecalendar=false;
+    this.activehomepage=false;
   }
   activeservicef() {
     this.activehome = false;
@@ -38,6 +39,7 @@ export class SideComponent implements OnInit {
     this.activeabout = false;
     this.activeblog = false;
     this.activecalendar=false;
+    this.activehomepage=false;
   }
   activeworkf() {
     this.activehome = false;
@@ -46,6 +48,7 @@ export class SideComponent implements OnInit {
     this.activeabout = false;
     this.activeblog = false;
     this.activecalendar=false;
+    this.activehomepage=false;
   }
   activeaboutf() {
     this.activehome = false;
@@ -54,6 +57,7 @@ export class SideComponent implements OnInit {
     this.activeabout = true;
     this.activeblog = false;
     this.activecalendar=false;
+    this.activehomepage=false;
   }
   activeblogf() {
     this.activehome = false;
@@ -62,6 +66,7 @@ export class SideComponent implements OnInit {
     this.activeabout = false;
     this.activeblog = true;
     this.activecalendar=false;
+    this.activehomepage=false;
   }
 
   activebloglink() {
@@ -73,6 +78,7 @@ export class SideComponent implements OnInit {
     this.activepages = false;
     this.activehomepage=true;
     this.activecalendar=false;
+    
    
   }
 
@@ -86,6 +92,11 @@ export class SideComponent implements OnInit {
     this.activepages = false;
     this.activehomepage=true;
     this.activecalendar=false;
+    this.activeabout=false;
+    this.activework=false;
+    this.activeservice=false;
+    this.activeblog=false;
+    this.activehome=false;
   }
   activecalendarf(){
     this.activehome = false;

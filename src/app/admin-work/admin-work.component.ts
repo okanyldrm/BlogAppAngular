@@ -14,22 +14,53 @@ import { WorkpageService } from '../services/workpage.service';
 export class AdminWorkComponent implements OnInit {
   workpage: WorkPage = new WorkPage();
   works!: Work[];
+  workName!: string;
+  pwork: number = 1;
   constructor(
     private workpageService: WorkpageService,
     private sweetAlert: Sweetalert2Service,
-    private workservice:WorkService
+    private workservice: WorkService
   ) {}
 
   ngOnInit(): void {
     this.workpageService
       .getworkpage()
       .subscribe((data) => (this.workpage = data));
-      this.workservice.getallwork().subscribe((data)=>this.works=data);
+    this.workservice.getallwork().subscribe((data) => (this.works = data));
   }
 
   updateform(form: NgForm) {
     this.workpageService.updateworkpage(this.workpage).subscribe((data) => {
       this.sweetAlert.fire('Güncelleme Başarılı');
     });
+  }
+
+  deletework(workId: any) {
+    this.workservice.deletework(workId).subscribe((data) => {
+      setTimeout(() => {
+        window.location.reload();
+      }, 2990);
+      this.sweetAlert.toast('Deleted : ' + workId, 3000);
+    });
+  }
+
+  SearchWork() {
+    if (this.workName == '') {
+      this.ngOnInit();
+    } else {
+      this.works = this.works.filter((res) => {
+        return res.title
+          .toLocaleLowerCase()
+          .match(this.workName.toLocaleLowerCase());
+      });
+    }
+  }
+
+  
+  key: string = 'id';
+  reverse: boolean = false;
+  sortbyid(key: any) {
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 }
