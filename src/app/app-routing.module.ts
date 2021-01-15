@@ -18,6 +18,7 @@ import { DatabaseUpdateFormComponent } from './admin-service/admin-service-datab
 import { DevopsUpdateFormComponent } from './admin-service/admin-service-devops/devops-update-form/devops-update-form.component';
 import { FrontendUpdateFormComponent } from './admin-service/admin-service-frontend/frontend-update-form/frontend-update-form.component';
 import { AdminServiceComponent } from './admin-service/admin-service.component';
+import { AdminWorkAddComponent } from './admin-work-add/admin-work-add.component';
 import { AdminWorkComponent } from './admin-work/admin-work.component';
 import { WorkUpdateFormComponent } from './admin-work/work-update-form/work-update-form.component';
 import { AdminComponent } from './admin/admin.component';
@@ -72,6 +73,7 @@ const routes: Routes = [
       { path: 'service/database/add', component: AdminServiceDatabaseAddComponent },
       { path: 'service/devops/add', component: AdminServiceDevopsAddComponent },
       { path: 'work', component: AdminWorkComponent },
+      { path: 'work/add', component: AdminWorkAddComponent },
       { path: 'about', component: AdminAboutComponent },
       { path: 'blog', component: AdminBlogComponent },
       { path: 'home/feature/:featureId', component: AdminFeatureUpdateComponent },
