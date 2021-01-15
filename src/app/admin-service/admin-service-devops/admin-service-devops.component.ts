@@ -20,6 +20,8 @@ export class AdminServiceDevopsComponent implements OnInit {
 
   devopspage: DevopsPage = new DevopsPage();
   devopses!: Devops[];
+  devopsName!: string;
+  pdevops: number = 1;
 
   ngOnInit(): void {
     this.devopspageService
@@ -45,6 +47,27 @@ export class AdminServiceDevopsComponent implements OnInit {
       }, 2990);
       this.sweetalert.toast("Deleted ID : "+devopsId,3000);
     })
+  }
+
+   
+  SearchDevops() {
+    if (this.devopsName == '') {
+      this.ngOnInit();
+    } else {
+      this.devopses = this.devopses.filter((res) => {
+        return res.title
+          .toLocaleLowerCase()
+          .match(this.devopsName.toLocaleLowerCase());
+      });
+    }
+  }
+
+  
+  key: string = 'id';
+  reverse: boolean = false;
+  sortbyid(key: any) {
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 
 }

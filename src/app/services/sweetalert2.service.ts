@@ -25,8 +25,10 @@ export class Sweetalert2Service {
       }
     })
     Toast.fire({
+      
       icon: 'success',
-      title: message
+      title: message,
+      background:'red'
     })
   }
 }

@@ -95,8 +95,8 @@
               <tr>
                 <th style="width: 100px" (click)="sortbyid('id')">ID  &nbsp; <i class="fa fa-sort"></i></th>
                 <th>Language</th>
-                <th>Progress</th>
-                <th style="width: 40px">Label</th>
+                <th>Content</th>
+                <!-- <th style="width: 40px">Label</th> -->
                 <th style="width: 115px">Operation</th>
               </tr>
             </thead>
@@ -105,14 +105,15 @@
                 <td>{{frontend.id}}</td>
                 <td>{{ frontend.title }}</td>
                 <td>
-                  <div class="progress progress-xs">
+                  {{frontend.content | slice: 0:80}}...
+                  <!-- <div class="progress progress-xs">
                     <div
                       class="progress-bar progress-bar-danger"
                       style="width: 55%"
                     ></div>
-                  </div>
+                  </div> -->
                 </td>
-                <td><span class="badge bg-danger">55%</span></td>
+                <!-- <td><span class="badge bg-danger">55%</span></td> -->
                 <td>
                   <div class="row">
                     <div class="col-sm-6">
