@@ -37,4 +37,14 @@ export class AdminServiceDevopsComponent implements OnInit {
         this.sweetalert.fire('Güncelleme Başarılı');
       });
   }
+
+  deletedevops(devopsId:any){
+    this.devopsService.deletedevops(devopsId).subscribe((data)=>{
+      setTimeout(() => {
+        window.location.reload();
+      }, 2990);
+      this.sweetalert.toast("Deleted ID : "+devopsId,3000);
+    })
+  }
+
 }

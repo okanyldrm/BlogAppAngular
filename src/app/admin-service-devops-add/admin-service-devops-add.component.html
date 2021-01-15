@@ -2,20 +2,19 @@
 <!-- general form elements -->
 <div class="card card-success ">
     <div class="card-header">
-      <h3 class="card-title">Add Database </h3>
+      <h3 class="card-title">Add Devops </h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
     
-        <form #adddatabaseform="ngForm"    (ngSubmit)="addform(adddatabaseform)"
-        >
-         
+        <form #adddevopsform="ngForm"  (ngSubmit)="addform(adddevopsform)"  >
+
             <div class="row">
               <div class="col-sm-8">
                 <!-- text input -->
                 <div class="form-group">
                   <label>Title</label>
-                  <input   type="text" class="form-control" #title="ngModel" [(ngModel)]="database.title" name="title" id="title" />
+                  <input   type="text" class="form-control" #title="ngModel" [(ngModel)]="devops.title" name="title" id="title" />
                 </div>
               </div>
             </div>
@@ -28,7 +27,7 @@
                 class="form-control"
                 rows="3"
                
-                #content="ngModel" [(ngModel)]="database.content" name="content" id="content"
+                #content="ngModel" [(ngModel)]="devops.content" name="content" id="content"
                
               ></textarea>
             </div>
@@ -38,7 +37,7 @@
                   <!-- text input -->
                   <div class="form-group">
                     <label>İmageUrl</label>
-                    <input   type="text" class="form-control" #imageUrl [(ngModel)]="database.imageUrl" name="imageUrl" id="imageUrl" />
+                    <input   type="text" class="form-control" #imageUrl [(ngModel)]="devops.imageUrl" name="imageUrl" id="imageUrl" />
                   </div>
                 </div>
               </div>

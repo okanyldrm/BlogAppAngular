@@ -11,6 +11,8 @@ export class DevopsService {
 path="http://localhost:5000/api/devops/getalldevops";
 path2="http://localhost:5000/api/devops/getbyiddevops";
 path3="http://localhost:5000/api/devops/updatedevops";
+path4="http://localhost:5000/api/devops/adddevops";
+path5="http://localhost:5000/api/devops/deletedevops";
 
   constructor(private http:HttpClient) { }
 
@@ -31,6 +33,18 @@ return this.http.get<Devops>(newpath);
 
 updatedevops(devops:Devops):Observable<Devops>{
 return this.http.post<Devops>(this.path3,devops);
+}
+
+adddevops(devops:Devops):Observable<Devops>{
+  return this.http.post<Devops>(this.path4,devops);
+}
+
+deletedevops(devopsId:any):Observable<Devops>{
+  let newpath=this.path5;
+  if (devopsId) {
+    newpath += "/"+devopsId;
+  }
+  return this.http.delete<Devops>(newpath);
 }
 
 }

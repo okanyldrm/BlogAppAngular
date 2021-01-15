@@ -67,9 +67,11 @@
           <div class="row">
             <div class="col-md-11"></div>
             <div class="col-md-1">
-              <button class="btn btn-success btn-sm">
-                Add Devops Tech <i>+</i>
-              </button>
+              <a routerLink="devops/add">
+                <button class="btn btn-success btn-sm">
+                  Add Devops Tech <i>+</i>
+                </button>
+              </a>
             </div>
           </div>
           <br />
@@ -99,13 +101,17 @@
                 <td>
                   <div class="row">
                     <div class="col-sm-6">
-                      <a routerLink="devops/{{devops.id}}">
+                      <a routerLink="devops/{{ devops.id }}">
                         <button class="btn btn-warning btn-sm">UPT</button>
                       </a>
                     </div>
 
                     <div class="col-sm-6">
-                      <button class="btn btn-danger btn-sm">DEL</button>
+<a (click)="deletedevops(devops.id)">
+  <button class="btn btn-danger btn-sm">DEL</button>
+</a>
+                      
+
                     </div>
                   </div>
                 </td>
