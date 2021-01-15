@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Frontend } from '../models/Frontend';
 import { FrontendService } from '../services/frontend.service';
 import { Sweetalert2Service } from '../services/sweetalert2.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-admin-service-frontend-add',
@@ -12,7 +13,8 @@ import { Sweetalert2Service } from '../services/sweetalert2.service';
 export class AdminServiceFrontendAddComponent implements OnInit {
   constructor(
     private frontendService: FrontendService,
-    private sweetalert: Sweetalert2Service
+    private sweetalert: Sweetalert2Service,
+    private _location:Location
   ) {}
   frontend: Frontend = new Frontend();
 
@@ -21,6 +23,7 @@ export class AdminServiceFrontendAddComponent implements OnInit {
   addfrontend(form: NgForm) {
     this.frontendService.addfrontend(this.frontend).subscribe((data) => {
       this.sweetalert.fire('Added Frontend : ' + this.frontend.title);
+      this._location.back();
     });
   }
 }

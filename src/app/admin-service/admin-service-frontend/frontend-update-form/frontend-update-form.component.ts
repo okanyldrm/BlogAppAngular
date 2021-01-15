@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Frontend } from 'src/app/models/Frontend';
 import { FrontendService } from 'src/app/services/frontend.service';
 import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-frontend-update-form',
@@ -14,7 +15,8 @@ export class FrontendUpdateFormComponent implements OnInit {
   constructor(
     private frontendService: FrontendService,
     private activated: ActivatedRoute,
-    private sweetAlert: Sweetalert2Service
+    private sweetAlert: Sweetalert2Service,
+    private _location:Location
   ) {}
   frontend: Frontend = new Frontend();
   ngOnInit(): void {
@@ -27,7 +29,8 @@ export class FrontendUpdateFormComponent implements OnInit {
 
   updateForm(form: NgForm) {
     this.frontendService.updatefrontend(this.frontend).subscribe((data) => {
-      this.sweetAlert.fire('Güncelleme Başarılı');
+      this.sweetAlert.fire('Updated : '+ this.frontend.title);
+      this._location.back();
     });
   }
 }

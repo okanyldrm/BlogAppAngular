@@ -38,4 +38,12 @@ export class AdminServiceFrontendComponent implements OnInit {
         );
       });
   }
+  deletefrontend(frontendId:any){
+    this.frontendService.deletefrontend(frontendId).subscribe((data)=>{
+      setTimeout(() => {
+        window.location.reload();
+      }, 400);
+      this.sweetAlert.fire("Deleted ID : "+frontendId)
+    })
+  }
 }
