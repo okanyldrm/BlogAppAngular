@@ -68,13 +68,12 @@
           <div class="row">
             <div class="col-md-11"></div>
             <div class="col-md-1">
-
-              <a routerLink="backend/add"><button class="btn btn-success btn-sm">
-                Add Backend Tech <i>+</i>
-              </button></a>
-              
+              <a routerLink="backend/add"
+                ><button class="btn btn-success btn-sm">
+                  Add Backend Tech <i>+</i>
+                </button></a
+              >
             </div>
-            
           </div>
           <div class="row">
             <div class="col-sm-4">
@@ -94,7 +93,9 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th style="width: 100px" (click)="sortbyid('id')">ID  &nbsp; <i class="fa fa-sort"></i></th>
+                <th style="width: 100px" (click)="sortbyid('id')">
+                  ID &nbsp; <i class="fa fa-sort"></i>
+                </th>
                 <th>Language</th>
                 <th>Content</th>
                 <!-- <th style="width: 40px">Label</th> -->
@@ -102,9 +103,20 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let backend of backends | orderBy: key: reverse | paginate:{id:'backendpaginate',itemsPerPage:5, currentPage:pbackend}" >
-                <td>{{backend.id}}</td>
-                <td>{{ backend.title | slice: 0:35}}</td>
+              <tr
+                *ngFor="
+                  let backend of backends
+                    | orderBy: key:reverse
+                    | paginate
+                      : {
+                          id: 'backendpaginate',
+                          itemsPerPage: 5,
+                          currentPage: pbackend
+                        }
+                "
+              >
+                <td>{{ backend.id }}</td>
+                <td>{{ backend.title | slice: 0:35 }}</td>
                 <td>
                   {{ backend.content | slice: 0:80 }}...
                   <!-- <div class="progress progress-xs">
@@ -124,14 +136,10 @@
                     </div>
 
                     <div class="col-sm-6">
-
                       <a (click)="backenddelete(backend.id)">
                         <button class="btn btn-danger btn-sm">DEL</button>
                       </a>
-                      
-
                     </div>
-
                   </div>
                 </td>
               </tr>
@@ -140,7 +148,11 @@
         </div>
         <div class="card-footer clearfix">
           <ul class="pagination pagination-sm m-0 float-right">
-            <pagination-controls id="backendpaginate" (pageChange)="pbackend= $event"> </pagination-controls>
+            <pagination-controls
+              id="backendpaginate"
+              (pageChange)="pbackend = $event"
+            >
+            </pagination-controls>
             <!-- <li class="page-item">
               <a class="page-link" href="#">&laquo;</a>
             </li>
