@@ -30,9 +30,9 @@ export class AdminFeatureComponent implements OnInit {
 
       setTimeout(() => {
         window.location.reload();
-      }, 400);
+      }, 2990);
 
-      this.sweetalert.fire('Deleted ID : ' + id);
+      this.sweetalert.toast("Deleted ID : "+id,3000);
 
      
     });

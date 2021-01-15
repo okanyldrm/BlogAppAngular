@@ -36,4 +36,13 @@ export class AdminServiceDatabaseComponent implements OnInit {
       this.sweetalert.fire('Güncelleme Başarılı');
     });
   }
+  deleteatabase(databaseId:any){
+this.databaseService.deletedatabase(databaseId).subscribe((data)=>{
+  setTimeout(() => {
+    window.location.reload();
+  }, 2995);
+
+  this.sweetalert.toast("Deleted ID : "+databaseId,3000);
+})
+  }
 }

@@ -1,0 +1,66 @@
+
+<!-- general form elements -->
+<div class="card card-success ">
+    <div class="card-header">
+      <h3 class="card-title">Add Database </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+    
+        <form #adddatabaseform="ngForm"    (ngSubmit)="addform(adddatabaseform)"
+        >
+         
+            <div class="row">
+              <div class="col-sm-8">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Title</label>
+                  <input   type="text" class="form-control" #title="ngModel" [(ngModel)]="database.title" name="title" id="title" />
+                </div>
+              </div>
+            </div>
+        
+           
+        
+            <div class="form-group">
+              <label>Content</label>
+              <textarea
+                class="form-control"
+                rows="3"
+               
+                #content="ngModel" [(ngModel)]="database.content" name="content" id="content"
+               
+              ></textarea>
+            </div>
+        
+            <div class="row">
+                <div class="col-sm-8">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>İmageUrl</label>
+                    <input   type="text" class="form-control" #imageUrl [(ngModel)]="database.imageUrl" name="imageUrl" id="imageUrl" />
+                  </div>
+                </div>
+              </div>
+           
+        
+           
+        
+            <div class="row">
+              <div class="col-sm-6">
+                <!-- text input -->
+                <button type="submit" class="btn btn-warning mr-2 px-4">
+                  Update
+                </button>
+              </div>
+            </div>
+          </form>
+
+
+
+
+    </div>
+    <!-- /.card-body -->
+    
+  </div>
+  

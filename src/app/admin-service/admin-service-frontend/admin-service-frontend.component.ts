@@ -14,6 +14,8 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 export class AdminServiceFrontendComponent implements OnInit {
   frontendPage: FrontendPage = new FrontendPage();
   frontends!: Frontend[];
+  frontendName!: string;
+  pfrontend: number = 1;
   constructor(
     private frontendPageService: FrontendpageService,
     private frontendService: FrontendService,
@@ -42,8 +44,30 @@ export class AdminServiceFrontendComponent implements OnInit {
     this.frontendService.deletefrontend(frontendId).subscribe((data)=>{
       setTimeout(() => {
         window.location.reload();
-      }, 400);
-      this.sweetAlert.fire("Deleted ID : "+frontendId)
+      }, 2990);
+      this.sweetAlert.toast("Deleted : "+frontendId,3000);
     })
   }
+
+  
+  SearchFrontend() {
+    if (this.frontendName == '') {
+      this.ngOnInit();
+    } else {
+      this.frontends = this.frontends.filter((res) => {
+        return res.title
+          .toLocaleLowerCase()
+          .match(this.frontendName.toLocaleLowerCase());
+      });
+    }
+  }
+
+   
+  key: string = 'id';
+  reverse: boolean = false;
+  sortbyid(key: any) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+
 }

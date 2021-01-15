@@ -21,7 +21,7 @@ export class AdminServiceBackendComponent implements OnInit {
   backendPage: BackendPage = new BackendPage();
   backends!: Backend[];
   backendName!: string;
-  p: number = 1;
+  pbackend: number = 1;
 
   ngOnInit(): void {
     this.backendpageService
@@ -44,9 +44,9 @@ export class AdminServiceBackendComponent implements OnInit {
     this.backendService.deleteBackend(id).subscribe((data) => {
       setTimeout(() => {
         window.location.reload();
-      }, 400);
+      }, 2990);
 
-      this.sweetalert.fire('Deleted ID : ' + id);
+      this.sweetalert.toast("Deleted ID : "+id,3000);
     });
   }
 
