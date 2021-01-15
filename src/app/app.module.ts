@@ -72,6 +72,7 @@ import { FullcalendarComponent } from './fullcalendar/fullcalendar.component';
 import { AdminFullcalendarComponent } from './admin-fullcalendar/admin-fullcalendar.component';
 import { AdminServiceFrontendAddComponent } from './admin-service-frontend-add/admin-service-frontend-add.component';
 import { AdminServiceDatabaseAddComponent } from './admin-service-database-add/admin-service-database-add.component';
+import { AdminServiceDevopsAddComponent } from './admin-service-devops-add/admin-service-devops-add.component';
 
 
 
@@ -132,7 +133,8 @@ import { AdminServiceDatabaseAddComponent } from './admin-service-database-add/a
     FullcalendarComponent,
     AdminFullcalendarComponent,
     AdminServiceFrontendAddComponent,
-    AdminServiceDatabaseAddComponent
+    AdminServiceDatabaseAddComponent,
+    AdminServiceDevopsAddComponent
     
   
   
