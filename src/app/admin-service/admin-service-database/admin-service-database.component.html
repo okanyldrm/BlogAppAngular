@@ -1,128 +1,152 @@
 <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-header">
-          <div class="row">
-            <div class="col-md-11">
-              <h3 class="card-title">Database Page Setting</h3>
-            </div>
-            <div class="col-md-1"></div>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-11">
+            <h3 class="card-title">Database Page Setting</h3>
           </div>
-          <div class="card-body">
-
-
-            <form #updatedatabasepage="ngForm" (ngSubmit)="updateFrom(updatedatabasepage)" >
-              <div class="row">
-                <div class="col-sm-6">
-                  <!-- text input -->
-                  <div class="form-group">
-                    <label>Title</label>
-                    <input class="form-control" #title="ngModel" [(ngModel)]="databasepage.title" name="title" id="title" />
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label>Mini Title</label>
-                    <input type="text" class="form-control" #miniTitle="ngModel" [(ngModel)]="databasepage.miniTitle" name="miniTitle" id="miniTitle" />
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label>Content</label>
-                    <textarea class="form-control" rows="3"
-                    [(ngModel)]="databasepage.content" #content="ngModel" name="content" id="content"
-                    ></textarea>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6">
-                  <!-- text input -->
-                  <button type="submit" class="btn btn-warning mr-2 px-4">
-                    Update
-                  </button>
-                </div>
-              </div>
-            </form>
-            <br />
+          <div class="col-md-1"></div>
+        </div>
+        <div class="card-body">
+          <form
+            #updatedatabasepage="ngForm"
+            (ngSubmit)="updateFrom(updatedatabasepage)"
+          >
             <div class="row">
-              <div class="col-md-11"></div>
-              <div class="col-md-1">
-<a routerLink="database/add">
-  <button class="btn btn-success btn-sm">
-    Add Database Tech <i>+</i>
-  </button>
-</a>
-              
-
+              <div class="col-sm-6">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Title</label>
+                  <input
+                    class="form-control"
+                    #title="ngModel"
+                    [(ngModel)]="databasepage.title"
+                    name="title"
+                    id="title"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Mini Title</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    #miniTitle="ngModel"
+                    [(ngModel)]="databasepage.miniTitle"
+                    name="miniTitle"
+                    id="miniTitle"
+                  />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Content</label>
+                  <textarea
+                    class="form-control"
+                    rows="3"
+                    [(ngModel)]="databasepage.content"
+                    #content="ngModel"
+                    name="content"
+                    id="content"
+                  ></textarea>
+                </div>
               </div>
             </div>
-            <br />
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Language</th>
-                  <th>Progress</th>
-                  <th style="width: 40px">Label</th>
-                  <th style="width: 115px">Operation</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                <tr *ngFor="let database of databases">
-                  <td>1.</td>
-                  <td>{{database.title}}</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div
-                        class="progress-bar progress-bar-danger"
-                        style="width: 55%"
-                      ></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-danger">55%</span></td>
-                  <td>
-                    <div class="row">
-                      <div class="col-sm-6">
-
-<a routerLink="database/{{database.id}}">
-  <button class="btn btn-warning btn-sm">UPT</button>
-</a>
-
-                       
-                      </div>
-
-                      <div class="col-sm-6">
-<a (click)="deleteatabase(database.id)">
-  <button class="btn btn-danger btn-sm">DEL</button>
-</a>
-                      
-
-
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-
-               
-              </tbody>
-            </table>
+            <div class="row">
+              <div class="col-sm-6">
+                <!-- text input -->
+                <button type="submit" class="btn btn-warning mr-2 px-4">
+                  Update
+                </button>
+              </div>
+            </div>
+          </form>
+          <br />
+          <div class="row">
+            <div class="col-md-11"></div>
+            <div class="col-md-1">
+              <a routerLink="database/add">
+                <button class="btn btn-success btn-sm">
+                  Add Database Tech <i>+</i>
+                </button>
+              </a>
+            </div>
           </div>
-          <div class="card-footer clearfix">
-            <ul class="pagination pagination-sm m-0 float-right">
-              <li class="page-item">
-                <a class="page-link" href="#">&laquo;</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">&raquo;</a>
-              </li>
-            </ul>
+          <div class="row">
+            <div class="col-sm-4">
+              <input
+                class="form-control form-control-sm"
+                type="text"
+                placeholder="Search Database"
+                name="databaseName"
+                id="databaseName"
+                [(ngModel)]="databaseName"
+                (ngModelChange)="SearchDatabase()"
+              />
+            </div>
           </div>
+         
+          <br />
+          <br />
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th style="width: 100px" (click)="sortbyid('id')">ID  &nbsp; <i class="fa fa-sort"></i></th>
+                <th>Language</th>
+                <th>Progress</th>
+                <th style="width: 40px">Label</th>
+                <th style="width: 115px">Operation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let database of databases | orderBy: key: reverse | paginate:{id:'databasepaginate',itemsPerPage:5, currentPage:pdatabase}">
+                <td>{{database.id}}</td>
+                <td>{{ database.title }}</td>
+                <td>
+                  <div class="progress progress-xs">
+                    <div
+                      class="progress-bar progress-bar-danger"
+                      style="width: 55%"
+                    ></div>
+                  </div>
+                </td>
+                <td><span class="badge bg-danger">55%</span></td>
+                <td>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <a routerLink="database/{{ database.id }}">
+                        <button class="btn btn-warning btn-sm">UPT</button>
+                      </a>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <a (click)="deleteatabase(database.id)">
+                        <button class="btn btn-danger btn-sm">DEL</button>
+                      </a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer clearfix">
+          <ul class="pagination pagination-sm m-0 float-right">
+            <pagination-controls id="databasepaginate" (pageChange)="pdatabase= $event"> </pagination-controls>
+            <!-- <li class="page-item">
+              <a class="page-link" href="#">&laquo;</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">&raquo;</a>
+            </li> -->
+          </ul>
         </div>
       </div>
     </div>
   </div>
+</div>
