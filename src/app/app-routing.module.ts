@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminAboutComponent } from './admin-about/admin-about.component';
+import { AdminBlogAddComponent } from './admin-blog-add/admin-blog-add.component';
 import { AdminBlogUpdateFormComponent } from './admin-blog/admin-blog-update-form/admin-blog-update-form.component';
 import { AdminBlogComponent } from './admin-blog/admin-blog.component';
 import { AdminFeatureAddComponent } from './admin-feature-add/admin-feature-add.component';
@@ -76,6 +77,7 @@ const routes: Routes = [
       { path: 'work/add', component: AdminWorkAddComponent },
       { path: 'about', component: AdminAboutComponent },
       { path: 'blog', component: AdminBlogComponent },
+      { path: 'blog/add', component: AdminBlogAddComponent },
       { path: 'home/feature/:featureId', component: AdminFeatureUpdateComponent },
       { path: 'service/backend/:backendId', component: BackendUpdateFormComponent },
       { path: 'service/frontend/:frontendId', component: FrontendUpdateFormComponent },

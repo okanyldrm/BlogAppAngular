@@ -1,0 +1,86 @@
+
+<!-- general form elements -->
+<div class="card card-success ">
+    <div class="card-header">
+      <h3 class="card-title">Add Blog </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+    
+        <form #addblogform="ngForm" (ngSubmit)="addform(addblogform)"  >
+
+            <div class="row">
+              <div class="col-sm-6">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Title</label>
+                  <input   type="text" class="form-control" #title="ngModel" [(ngModel)]="blog.title" name="title" id="title"   />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Mini Title</label>
+                  <input   type="text" class="form-control" #miniTitle="ngModel" [(ngModel)]="blog.miniTitle" name="miniTitle" id="miniTitle"  />
+                </div>
+              </div>
+            </div>
+        
+           
+        
+            <div class="form-group">
+              <label>Content</label>
+              <textarea
+                class="form-control"
+                rows="15"
+                #content="ngModel" [(ngModel)]="blog.content" name="content" id="content"
+              ></textarea>
+            </div>
+        
+            <div class="row">
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Title-2</label>
+                    <input   type="text" class="form-control" #title2="ngModel" [(ngModel)]="blog.title2" name="title2" id="title2" />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>ImageUrl</label>
+                    <input   type="text" class="form-control" #imageUrl="ngModel" [(ngModel)]="blog.imageUrl" name="imageUrl" id="imageUrl"  />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Content-2</label>
+                <textarea
+                  class="form-control"
+                  rows="10"
+                #content2="ngModel" [(ngModel)]="blog.content2" name="content2" id="content2"
+                ></textarea>
+              </div>
+           
+        
+           
+        
+            <div class="row">
+              <div class="col-sm-6">
+                <!-- text input -->
+                <button type="submit" class="btn btn-success mr-2 px-4">
+                  Add
+                </button>
+              </div>
+            </div>
+          </form>
+
+
+
+
+    </div>
+    <!-- /.card-body -->
+    
+  </div>
+  

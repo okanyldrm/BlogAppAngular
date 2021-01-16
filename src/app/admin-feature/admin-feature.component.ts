@@ -23,6 +23,7 @@ export class AdminFeatureComponent implements OnInit {
     this.featureService
       .getFeatures()
       .subscribe((data) => (this.features = data));
+      
   }
 
   deleteFeature(id: any) {
