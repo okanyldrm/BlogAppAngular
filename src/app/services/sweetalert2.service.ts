@@ -20,8 +20,8 @@ export class Sweetalert2Service {
       timer: timerf,
       timerProgressBar: true,
       didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        // toast.addEventListener('mouseenter', Swal.stopTimer)
+        // toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
     })
     Toast.fire({
