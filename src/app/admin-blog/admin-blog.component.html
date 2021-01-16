@@ -53,26 +53,52 @@
                       <h3 class="card-title">Blogs</h3>
                     </div>
                     <div class="col-md-1">
-                      <button class="btn btn-success btn-sm">Add <i>+</i></button>
+                      <a routerLink="add">
+                        <button class="btn btn-success btn-sm">Add <i>+</i></button>
+                      </a>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <input
+                        class="form-control form-control-sm"
+                        type="text"
+                        placeholder="Search Blog"
+                        name="blogName"
+                        id="blogName"
+                        [(ngModel)]="blogName"
+                        (ngModelChange)="SearchBlog()"
+                      />
+                    </div>
+                  </div>
+                  <br />
                 </div>
                 <!-- /.card-header -->
+                
                 <div class="card-body">
                   <table class="table table-bordered">
                     <thead>
                       <tr>
-                        <th style="width: 10px">#</th>
+                        <th style="width: 100px" (click)="sortbyid('id')">
+                          ID &nbsp; <i class="fa fa-sort"></i>
+                        </th>
                         <th>Blog Title</th>
-                        <th>Status</th>
+                        <th>Content</th>
                        
                         <th style="width: 115px">Operation</th>
                       </tr>
                     </thead>
                     <tbody>
 
-                      <tr *ngFor="let blog of blogs">
-                        <td>1.</td>
+                      <tr *ngFor="let blog of blogs  
+                      | orderBy: key:reverse
+                      | paginate
+                        : {
+                            id: 'blogpaginate',
+                            itemsPerPage: 5,
+                            currentPage: pblog
+                          }">
+                        <td>{{blog.id}}</td>
                         <td>{{blog.title}}</td>
                         <td>
                            {{blog.content  | slice: 0:60 }}...
@@ -89,7 +115,10 @@
                             </div>
       
                             <div class="col-sm-6">
-                              <button class="btn btn-danger btn-sm">DEL</button>
+                              <a (click)="deleteblog(blog.id)">
+                                <button class="btn btn-danger btn-sm">DEL</button>
+                              </a>
+                           
                             </div>
                           </div>
                         </td>
@@ -101,7 +130,12 @@
                 </div>
                 <div class="card-footer clearfix">
                   <ul class="pagination pagination-sm m-0 float-right">
-                    <li class="page-item">
+                    <pagination-controls
+                    id="blogpaginate"
+                    (pageChange)="pblog = $event"
+                  >
+                  </pagination-controls>
+                    <!-- <li class="page-item">
                       <a class="page-link" href="#">&laquo;</a>
                     </li>
                     <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -109,7 +143,7 @@
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                     <li class="page-item">
                       <a class="page-link" href="#">&raquo;</a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </div>

@@ -74,6 +74,7 @@ import { AdminServiceFrontendAddComponent } from './admin-service-frontend-add/a
 import { AdminServiceDatabaseAddComponent } from './admin-service-database-add/admin-service-database-add.component';
 import { AdminServiceDevopsAddComponent } from './admin-service-devops-add/admin-service-devops-add.component';
 import { AdminWorkAddComponent } from './admin-work-add/admin-work-add.component';
+import { AdminBlogAddComponent } from './admin-blog-add/admin-blog-add.component';
 
 
 
@@ -136,7 +137,8 @@ import { AdminWorkAddComponent } from './admin-work-add/admin-work-add.component
     AdminServiceFrontendAddComponent,
     AdminServiceDatabaseAddComponent,
     AdminServiceDevopsAddComponent,
-    AdminWorkAddComponent
+    AdminWorkAddComponent,
+    AdminBlogAddComponent
     
   
   

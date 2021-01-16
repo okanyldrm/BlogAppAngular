@@ -20,6 +20,8 @@ export class AdminBlogComponent implements OnInit {
 
   blogpage:BlogPage= new BlogPage();
   blogs!:Blog[];
+  blogName!: string;
+  pblog: number = 1;
   ngOnInit(): void {
     this.blogpageService
       .getblogpage()
@@ -32,4 +34,35 @@ export class AdminBlogComponent implements OnInit {
       this.sweetAlert.fire('Güncelleme Basarılı');
     });
   }
+  
+  deleteblog(blogId: any) {
+    this.blogService.deleteblog(blogId).subscribe((data) => {
+      setTimeout(() => {
+        window.location.reload();
+      }, 2990);
+      this.sweetAlert.toast('Deleted : ' + blogId, 3000);
+    });
+  }
+
+   
+  SearchBlog() {
+    if (this.blogName == '') {
+      this.ngOnInit();
+    } else {
+      this.blogs = this.blogs.filter((res) => {
+        return res.title
+          .toLocaleLowerCase()
+          .match(this.blogName.toLocaleLowerCase());
+      });
+    }
+  }
+
+  
+  key: string = 'id';
+  reverse: boolean = false;
+  sortbyid(key: any) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+
 }
