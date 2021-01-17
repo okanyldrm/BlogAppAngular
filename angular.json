@@ -27,20 +27,21 @@
             "styles": [
              
               //main-css
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
               "node_modules/jquery-ui-dist/jquery-ui.min.css",
               "node_modules/jquery-ui-dist/jquery-ui.theme.min.css",
               "node_modules/jquery-ui-dist/jquery-ui.structure.css",
-              "node_modules/daterangepicker/daterangepicker.css",
               //admin-lte
+              "node_modules/daterangepicker/daterangepicker.css",
               "node_modules/summernote/dist/summernote.min.css",
               "node_modules/admin-lte/plugins/fontawesome-free/css/all.css",
               "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.css",
               "node_modules/admin-lte/dist/css/adminlte.css",
-              "node_modules/admin-lte/plugins/jqvmap/jqvmap.min.css",
 
               //fullcalendar
+              "node_modules/admin-lte/plugins/jqvmap/jqvmap.min.css",
               "node_modules/@fullcalendar/common/main.css",
               "node_modules/@fullcalendar/daygrid/main.css"
               
@@ -139,7 +140,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
+            "styles": ["./node_modules/@angular/material/prebuilt-themes/indigo-pink.css", "src/styles.css"],
             "scripts": []
           }
         },
