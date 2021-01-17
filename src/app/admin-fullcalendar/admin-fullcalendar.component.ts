@@ -1,40 +1,62 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarOptions, EventInput } from '@fullcalendar/angular';
+import { NgForm } from '@angular/forms';
+import {
+  CalendarOptions,
+  EventInput,
+  EventInputTransformer,
+} from '@fullcalendar/angular';
 import { EventM } from '../models/EventM';
 
 import { EventService } from '../services/event.service';
-
+import { Sweetalert2Service } from '../services/sweetalert2.service';
+declare var $: any;
 @Component({
   selector: 'app-admin-fullcalendar',
   templateUrl: './admin-fullcalendar.component.html',
   styleUrls: ['./admin-fullcalendar.component.css'],
 })
 export class AdminFullcalendarComponent implements OnInit {
+  constructor(
+    private eventService: EventService,
+    private sweeralert: Sweetalert2Service
+  ) {}
 
-  
+  eventsMs!: EventM[];
+  eventM: EventM = new EventM();
 
-  constructor(private eventService:EventService) {}
-
-  eventsM!:EventM[];
-
-  eventsM2:EventInput[]=[
-     { title: 'Toplantı', date: '2021-01-05T10:30:00', color:"red"},
-     { title: 'Halı Saha', date: '2021-01-07T22:30:00', color:"green"}
-  ];
-
-
-
+  calendarOptions!: CalendarOptions;
   ngOnInit(): void {
-   this.eventService.getallevent().subscribe((data)=>this.eventsM=data)
+    this.eventService.getallevent().subscribe((data) => {
+      this.eventsMs = data;
+
+      this.eventFunction(this.eventsMs);
+    });
   }
 
-  calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',
-    dateClick: this.handleDateClick.bind(this), // bind is important!
+  eventFunction(events: any) {
+    this.calendarOptions = {
+      initialView: 'dayGridMonth',
+      // dateClick: this.handleDateClick.bind(this), // bind is important!
+      events: events,
+      eventTimeFormat: {
+        hour: 'numeric',
+        minute: '2-digit',
+        meridiem: false,
+        hour12: false,
+      },
+    };
+  }
 
-    events: this.eventsM2
-  };
-  handleDateClick(arg:any) {
-    alert('Date : ' + arg.dateStr)
-}
+  addEvent() {
+    $('#exampleModal').modal();
+  }
+
+  addEventDb(form: NgForm) {
+    this.eventService.addevent(this.eventM).subscribe((data) => {
+      $('#exampleModal').modal('hide');
+      this.sweeralert.fire('Added Event');
+      // window.location.reload();
+      //alert(form.value.dateM);
+    });
+  }
 }

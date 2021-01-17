@@ -75,13 +75,10 @@ import { AdminServiceDatabaseAddComponent } from './admin-service-database-add/a
 import { AdminServiceDevopsAddComponent } from './admin-service-devops-add/admin-service-devops-add.component';
 import { AdminWorkAddComponent } from './admin-work-add/admin-work-add.component';
 import { AdminBlogAddComponent } from './admin-blog-add/admin-blog-add.component';
-
-
-
-
-
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 
 
@@ -154,7 +151,11 @@ import { AdminBlogAddComponent } from './admin-blog-add/admin-blog-add.component
     FullCalendarModule,
     Ng2SearchPipeModule,
     Ng2OrderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule ,
+    MatMomentDateModule
     
   ],
   providers: [],
