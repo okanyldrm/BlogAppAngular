@@ -5,7 +5,6 @@ import { AdminBlogAddComponent } from './admin-blog-add/admin-blog-add.component
 import { AdminBlogUpdateFormComponent } from './admin-blog/admin-blog-update-form/admin-blog-update-form.component';
 import { AdminBlogComponent } from './admin-blog/admin-blog.component';
 import { AdminFeatureAddComponent } from './admin-feature-add/admin-feature-add.component';
-
 import { AdminFeatureUpdateComponent } from './admin-feature/admin-feature-update/admin-feature-update.component';
 import { AdminFirstComponent } from './admin-first/admin-first.component';
 import { AdminFullcalendarComponent } from './admin-fullcalendar/admin-fullcalendar.component';
@@ -40,7 +39,7 @@ import { SideComponent } from './side/side.component';
 const routes: Routes = [
 
   {
-    path: 'client',
+    path: '',
     component: ClientComponent,
     children: [
       { path: 'home', component: ClientHomeComponent },
