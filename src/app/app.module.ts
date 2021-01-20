@@ -79,6 +79,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { SchedulerComponent } from './scheduler/scheduler.component';
+import { DataTablesModule } from 'angular-datatables';
+
 
 
 
@@ -135,7 +138,8 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
     AdminServiceDatabaseAddComponent,
     AdminServiceDevopsAddComponent,
     AdminWorkAddComponent,
-    AdminBlogAddComponent
+    AdminBlogAddComponent,
+    SchedulerComponent
     
   
   
@@ -155,7 +159,8 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule ,
-    MatMomentDateModule
+    MatMomentDateModule,
+    DataTablesModule
     
   ],
   providers: [],
