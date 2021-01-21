@@ -81,6 +81,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { SchedulerComponent } from './scheduler/scheduler.component';
 import { DataTablesModule } from 'angular-datatables';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 
 
@@ -160,7 +161,8 @@ import { DataTablesModule } from 'angular-datatables';
     MatDatepickerModule,
     MatNativeDateModule ,
     MatMomentDateModule,
-    DataTablesModule
+    DataTablesModule,
+    NgxMaterialTimepickerModule.setLocale('en-EN')
     
   ],
   providers: [],
