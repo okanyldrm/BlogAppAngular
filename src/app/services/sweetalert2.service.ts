@@ -9,7 +9,9 @@ export class Sweetalert2Service {
 
   fire(message: string) {
     Swal.fire({
-      title: message
+      title: message,
+      showConfirmButton: false,
+      icon: 'success',
     });
   }
   toast(message:string,timerf:number){
@@ -28,7 +30,8 @@ export class Sweetalert2Service {
       
       icon: 'success',
       title: message,
-      background:'red'
+      background:'red',
+      
     })
   }
 }

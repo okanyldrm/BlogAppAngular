@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EventService } from '../services/event.service';
 
 @Component({
   selector: 'app-side',
@@ -7,7 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./side.component.css'],
 })
 export class SideComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router,private eventService:EventService) {}
+
+  eventCount!:number;
 
   navlink = true;
   activehome = false;
@@ -21,7 +24,13 @@ export class SideComponent implements OnInit {
   activecalendar=false;
   
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+   this.eventService.geteventcount().subscribe((data)=>{
+    this.eventCount=data;
+   })
+
+  }
 
   activehomef() {
     this.activehome = true;
