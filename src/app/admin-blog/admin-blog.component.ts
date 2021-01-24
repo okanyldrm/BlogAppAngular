@@ -23,10 +23,18 @@ export class AdminBlogComponent implements OnInit {
   blogName!: string;
   pblog: number = 1;
   ngOnInit(): void {
+   this.getblogpage();
+    this.getallblog();
+  }
+
+  getblogpage(){
     this.blogpageService
-      .getblogpage()
-      .subscribe((data) => (this.blogpage = data));
-      this.blogService.getallblog().subscribe((data)=>this.blogs=data);
+    .getblogpage()
+    .subscribe((data) => (this.blogpage = data));
+  }
+
+  getallblog(){
+    this.blogService.getallblog().subscribe((data)=>this.blogs=data);
   }
 
   updateform(form: NgForm) {
@@ -37,10 +45,9 @@ export class AdminBlogComponent implements OnInit {
   
   deleteblog(blogId: any) {
     this.blogService.deleteblog(blogId).subscribe((data) => {
-      setTimeout(() => {
-        window.location.reload();
-      }, 2990);
+      
       this.sweetAlert.toast('Deleted : ' + blogId, 3000);
+      this.getallblog();
     });
   }
 

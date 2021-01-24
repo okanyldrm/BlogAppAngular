@@ -24,12 +24,20 @@ export class AdminServiceDevopsComponent implements OnInit {
   pdevops: number = 1;
 
   ngOnInit(): void {
+   this.getdevopspage();
+   this.getalldevops();
+  }
+
+  getdevopspage(){
     this.devopspageService
-      .getdevopspage()
-      .subscribe((data) => (this.devopspage = data));
+    .getdevopspage()
+    .subscribe((data) => (this.devopspage = data));
+  }
+
+  getalldevops(){
     this.devopsService
-      .getalldevops()
-      .subscribe((data) => (this.devopses = data));
+    .getalldevops()
+    .subscribe((data) => (this.devopses = data));
   }
 
   updateform(form: NgForm) {
@@ -42,10 +50,8 @@ export class AdminServiceDevopsComponent implements OnInit {
 
   deletedevops(devopsId:any){
     this.devopsService.deletedevops(devopsId).subscribe((data)=>{
-      setTimeout(() => {
-        window.location.reload();
-      }, 2990);
-      this.sweetalert.toast("Deleted ID : "+devopsId,3000);
+      this.sweetalert.toast("Deleted ID : "+devopsId,2000);
+      this.getalldevops();
     })
   }
 

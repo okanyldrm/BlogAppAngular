@@ -24,12 +24,20 @@ export class AdminServiceBackendComponent implements OnInit {
   pbackend: number = 1;
 
   ngOnInit(): void {
-    this.backendpageService
-      .getbackendpage()
-      .subscribe((data) => (this.backendPage = data));
+   this.getbackendpage();
+    this.getbackendall();
+  }
+
+  getbackendall(){
     this.backendService
-      .getbackendall()
-      .subscribe((data) => (this.backends = data));
+    .getbackendall()
+    .subscribe((data) => (this.backends = data));
+  }
+
+  getbackendpage(){
+    this.backendpageService
+    .getbackendpage()
+    .subscribe((data) => (this.backendPage = data));
   }
 
   backendpageupdate(form: NgForm) {
@@ -42,11 +50,8 @@ export class AdminServiceBackendComponent implements OnInit {
 
   backenddelete(id: any) {
     this.backendService.deleteBackend(id).subscribe((data) => {
-      setTimeout(() => {
-        window.location.reload();
-      }, 2990);
-
-      this.sweetalert.toast("Deleted ID : "+id,3000);
+      this.sweetalert.toast("Deleted ID : "+id,2000);
+      this.getbackendall();
     });
   }
 
