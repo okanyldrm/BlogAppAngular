@@ -8,6 +8,7 @@ declare const anime:any;
 })
 export class AdminFirstComponent implements OnInit {
   
+  parentNode!:any;
   constructor() { }
 
   ngOnInit(): void {

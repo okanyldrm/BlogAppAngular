@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import {
@@ -18,13 +18,14 @@ declare var $: any;
   templateUrl: './admin-fullcalendar.component.html',
   styleUrls: ['./admin-fullcalendar.component.css'],
 })
-export class AdminFullcalendarComponent implements OnInit {
+export class AdminFullcalendarComponent implements OnInit  {
 
   eventsMs!: EventM[];
   eventM: EventM = new EventM();
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
   calendarOptions!: CalendarOptions;
+ 
   
 
   
@@ -33,6 +34,7 @@ export class AdminFullcalendarComponent implements OnInit {
     private eventService: EventService,
     private sweeralert: Sweetalert2Service
   ) {}
+ 
 
   ngOnInit(): void {
     this.dataTableOption();
@@ -41,7 +43,11 @@ export class AdminFullcalendarComponent implements OnInit {
       this.dtTrigger.next();
       this.eventFunction(this.eventsMs);
     });
+    
+    
   }
+
+
 
 
   eventFunction(events: any) {
@@ -90,5 +96,13 @@ export class AdminFullcalendarComponent implements OnInit {
         }, 2990);
       })
   }
+
+ 
+  gotoeventlist() {
+  
+  }
+
+ 
+  
 
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { Backend } from '../models/Backend';
+import { ChartSizeModel } from '../models/ChartSizeModel';
 import { BackendService } from '../services/backend.service';
+import { ChartModelService } from '../services/chart-model.service';
 
 @Component({
   selector: 'app-admin-charts-learningtech',
@@ -10,22 +12,28 @@ import { BackendService } from '../services/backend.service';
 })
 export class AdminChartsLearningtechComponent implements OnInit {
   
-  backends: Backend[] = new Array<Backend>();
-  backendSize: number = 0;
 
-  constructor(private backendservice: BackendService) {}
+  chartsizemodel:ChartSizeModel = new ChartSizeModel();
+  constructor(private chartmodelService:ChartModelService) {}
 
   ngOnInit(): void {
-    this.backendservice.getbackendall().subscribe((data) => {
-      this.backends = data;
-      this.backendSize = data.length;
-      //tekrar et!!
-      //dinamik veriyi sade subs da yakalıyosun dışarı çıkaramıyosun!!!
-      this.chartBarModel(this.backendSize);
+    this.chartmodelService.getchartsize().subscribe((data) => {
+     this.chartsizemodel = data;
+      this.chartBarModel(data.backendSize,data.frontendSize,data.databaseSize,data.devopsSize);
     });
   }
 
-  chartBarModel(backendsize: any) {
+  // ngOnInit(): void {
+  //   this.backendservice.getbackendall().subscribe((data) => {
+  //     this.backends = data;
+  //     this.backendSize = data.length;
+  //     //tekrar et!!
+  //     //dinamik veriyi sade subs da yakalıyosun dışarı çıkaramıyosun!!!
+  //     this.chartBarModel(this.backendSize);
+  //   });
+  // }
+
+  chartBarModel(backendsize:any,frontendsize:any,databasesize:any,devopssize:any) {
     var myChart = new Chart('myChart', {
       type: 'bar',
       data: {
@@ -33,7 +41,7 @@ export class AdminChartsLearningtechComponent implements OnInit {
         datasets: [
           {
             label: 'Learning Chart',
-            data: [15, backendsize, 12, 5],
+            data: [frontendsize, backendsize, databasesize, devopssize],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',

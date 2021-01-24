@@ -4,3 +4,9 @@
 @import "../../shape//css/icomoon.css";
 @import  "../../shape//css/magnific-popup.css";
 @import  "../../shape//css/style.css";
+
+img {
+    width: 200px;
+    height: 80px;
+    object-fit: cover;
+  }
