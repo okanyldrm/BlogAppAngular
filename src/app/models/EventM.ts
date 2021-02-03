@@ -1,3 +1,4 @@
+import { EventCategory } from "./EventCategory";
 
 export class EventM{
     id!:string;
@@ -5,4 +6,6 @@ export class EventM{
     date!: Date;
     color!:string;
     time!:string;
+    eventCategoryId!:number;
+    eventCategory!:EventCategory;
 }

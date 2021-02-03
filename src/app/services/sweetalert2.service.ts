@@ -30,7 +30,7 @@ export class Sweetalert2Service {
       
       icon: 'success',
       title: message,
-      background:'red',
+      
       
     })
   }

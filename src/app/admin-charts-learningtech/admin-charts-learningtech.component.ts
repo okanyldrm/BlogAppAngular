@@ -35,7 +35,7 @@ export class AdminChartsLearningtechComponent implements OnInit {
 
   chartBarModel(backendsize:any,frontendsize:any,databasesize:any,devopssize:any) {
     var myChart = new Chart('myChart', {
-      type: 'bar',
+      type: 'polarArea',
       data: {
         labels: ['Frontend', 'Backend', 'Database', 'Devops'],
         datasets: [

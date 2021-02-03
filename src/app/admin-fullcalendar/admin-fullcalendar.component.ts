@@ -19,6 +19,8 @@ import { Sweetalert2Service } from '../services/sweetalert2.service';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { Time } from '@angular/common';
 import { Location } from '@angular/common';
+import { codefirstDTO } from '../models/codefirstDTO';
+import { EventCategory } from '../models/EventCategory';
 declare var $: any;
 @Component({
   selector: 'app-admin-fullcalendar',
@@ -31,6 +33,7 @@ export class AdminFullcalendarComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
   calendarOptions!: CalendarOptions;
+  codefirstDTOs!: codefirstDTO[]; 
 
   constructor(
     private eventService: EventService,
@@ -42,9 +45,23 @@ export class AdminFullcalendarComponent implements OnInit {
     this.dataTableOption();
     this.eventService.getallevent().subscribe((data) => {
       this.eventsMs = data;
+      data.forEach(item=>{
+        this.eventM.eventCategory=item.eventCategory
+      })
       this.dtTrigger.next();
       this.eventFunction(this.eventsMs);
     });
+
+
+    //codefirstDTO
+    // this.eventService.getcategoryevent().subscribe((data)=>{
+    //   this.codefirstDTOs=data;
+    //   data.forEach(item => {
+    //     console.log(item)
+    //   });
+     
+    // });
+    
   }
 
   eventFunction(events: any) {
@@ -85,12 +102,19 @@ export class AdminFullcalendarComponent implements OnInit {
 
   deleteEvent(id: any) {
     this.eventService.deleteevent(id).subscribe((data) => {
-      this.sweeralert.toast('deleted', 2900);
+      this.sweeralert.toast('Deletion Successful', 2900);
 
       setTimeout(() => {
          window.location.reload();
-       
       }, 3000);
     });
   }
+
+getcategoryevent(){
+  this.eventService.getcategoryevent().subscribe((data)=>{
+    this.codefirstDTOs=data;
+  });
+}
+
+
 }
