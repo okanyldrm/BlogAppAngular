@@ -24,10 +24,17 @@ export class AdminServiceDatabaseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getdatabasepage();
+    this.getalldatabase();
+  }
+
+  getdatabasepage() {
     this.databasepageService
       .getdatabasepage()
       .subscribe((data) => (this.databasepage = data));
+  }
 
+  getalldatabase() {
     this.databaseService
       .getalldatabase()
       .subscribe((data) => (this.databases = data));
@@ -38,16 +45,13 @@ export class AdminServiceDatabaseComponent implements OnInit {
       this.sweetalert.fire('Güncelleme Başarılı');
     });
   }
-  deleteatabase(databaseId:any){
-this.databaseService.deletedatabase(databaseId).subscribe((data)=>{
-  setTimeout(() => {
-    window.location.reload();
-  }, 2995);
-
-  this.sweetalert.toast("Deleted ID : "+databaseId,3000);
-})
+  deleteatabase(databaseId: any) {
+    this.databaseService.deletedatabase(databaseId).subscribe((data) => {
+      this.sweetalert.toast('Deleted ID : ' + databaseId, 2000);
+      this.getalldatabase();
+    });
   }
-  
+
   SearchDatabase() {
     if (this.databaseName == '') {
       this.ngOnInit();
@@ -60,7 +64,6 @@ this.databaseService.deletedatabase(databaseId).subscribe((data)=>{
     }
   }
 
-  
   key: string = 'id';
   reverse: boolean = false;
   sortbyid(key: any) {

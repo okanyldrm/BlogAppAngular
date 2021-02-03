@@ -23,9 +23,18 @@ export class AdminWorkComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+   this.getworkpage();
+   this.getallwork();
+  }
+
+
+  getworkpage(){
     this.workpageService
-      .getworkpage()
-      .subscribe((data) => (this.workpage = data));
+    .getworkpage()
+    .subscribe((data) => (this.workpage = data));
+  }
+
+  getallwork(){
     this.workservice.getallwork().subscribe((data) => (this.works = data));
   }
 
@@ -37,10 +46,9 @@ export class AdminWorkComponent implements OnInit {
 
   deletework(workId: any) {
     this.workservice.deletework(workId).subscribe((data) => {
-      setTimeout(() => {
-        window.location.reload();
-      }, 2990);
+      
       this.sweetAlert.toast('Deleted : ' + workId, 3000);
+      this.getallwork();
     });
   }
 

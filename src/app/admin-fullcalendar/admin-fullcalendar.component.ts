@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import {
@@ -10,8 +16,11 @@ import { Subject, Timestamp } from 'rxjs';
 import { EventM } from '../models/EventM';
 import { EventService } from '../services/event.service';
 import { Sweetalert2Service } from '../services/sweetalert2.service';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { Time } from '@angular/common';
+import { Location } from '@angular/common';
+import { codefirstDTO } from '../models/codefirstDTO';
+import { EventCategory } from '../models/EventCategory';
 declare var $: any;
 @Component({
   selector: 'app-admin-fullcalendar',
@@ -19,30 +28,41 @@ declare var $: any;
   styleUrls: ['./admin-fullcalendar.component.css'],
 })
 export class AdminFullcalendarComponent implements OnInit {
-
   eventsMs!: EventM[];
   eventM: EventM = new EventM();
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
   calendarOptions!: CalendarOptions;
-  
-
-  
+  codefirstDTOs!: codefirstDTO[]; 
 
   constructor(
     private eventService: EventService,
-    private sweeralert: Sweetalert2Service
+    private sweeralert: Sweetalert2Service,
+    private _location: Location
   ) {}
 
   ngOnInit(): void {
     this.dataTableOption();
     this.eventService.getallevent().subscribe((data) => {
       this.eventsMs = data;
+      data.forEach(item=>{
+        this.eventM.eventCategory=item.eventCategory
+      })
       this.dtTrigger.next();
       this.eventFunction(this.eventsMs);
     });
-  }
 
+
+    //codefirstDTO
+    // this.eventService.getcategoryevent().subscribe((data)=>{
+    //   this.codefirstDTOs=data;
+    //   data.forEach(item => {
+    //     console.log(item)
+    //   });
+     
+    // });
+    
+  }
 
   eventFunction(events: any) {
     this.calendarOptions = {
@@ -62,7 +82,6 @@ export class AdminFullcalendarComponent implements OnInit {
     $('#exampleModal').modal();
   }
 
-
   addEventDb(form: NgForm) {
     //alert(form.value.timeM);
     this.eventService.addevent(this.eventM).subscribe((data) => {
@@ -72,7 +91,6 @@ export class AdminFullcalendarComponent implements OnInit {
         window.location.reload();
       }, 1000);
     });
-
   }
 
   dataTableOption() {
@@ -82,13 +100,21 @@ export class AdminFullcalendarComponent implements OnInit {
     };
   }
 
-  deleteEvent(id:any){
-      this.eventService.deleteevent(id).subscribe((data)=>{
-        this.sweeralert.toast("deleted",2900);
-        setTimeout(() => {
-          window.location.reload();
-        }, 2990);
-      })
+  deleteEvent(id: any) {
+    this.eventService.deleteevent(id).subscribe((data) => {
+      this.sweeralert.toast('Deletion Successful', 2900);
+
+      setTimeout(() => {
+         window.location.reload();
+      }, 3000);
+    });
   }
+
+getcategoryevent(){
+  this.eventService.getcategoryevent().subscribe((data)=>{
+    this.codefirstDTOs=data;
+  });
+}
+
 
 }

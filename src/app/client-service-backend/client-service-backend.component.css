@@ -4,3 +4,12 @@
 @import "../../shape//css/icomoon.css";
 @import  "../../shape//css/magnific-popup.css";
 @import  "../../shape//css/style.css";
+
+.productbox{
+    padding: 15px;
+}
+img{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}

@@ -1,18 +1,41 @@
 <!-- Button trigger modal -->
-<button
-  (click)="addEvent()"
-  type="button"
-  class="btn btn-outline-success"
-  data-toggle="modal"
-  data-target="#exampleModal"
->
-  Add Event
-</button>
-
-<div class="col-sm-12">
-  <full-calendar [options]="calendarOptions"></full-calendar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-0">
+  
+    </div>
+    <div class="col-md-12">
+     
+          <button
+          (click)="addEvent()"
+          type="button"
+          class="btn btn-outline-success"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          Add Event
+        </button>
+        &nbsp;
+       
+          <!-- <button
+          type="button"
+          class="btn btn-outline-warning scrollToBottom"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          List Event
+        </button> -->
+       
+    </div>
+  </div>
 </div>
-<br />
+
+
+  <full-calendar [options]="calendarOptions"></full-calendar>
+
+
+
+<br /> 
 
 <!-- <div class="row">
   <div class="col-sm-8">
@@ -141,6 +164,25 @@
               <option>Cyan</option>
             </select>
           </div>
+
+
+          <div class="form-group">
+            <label>Category</label>
+            <select
+              class="form-control"
+              #eventCategoryId="ngModel"
+              [(ngModel)]="eventM.eventCategoryId"
+              name="eventCategoryId"
+              id="eventCategoryId"
+            >
+              <option value=1>Enjoy</option>
+              <option value=2>Work</option>
+            </select>
+          </div>
+
+
+
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -154,32 +196,54 @@
   </div>
 </div>
 
-<table
-  datatable
-  [dtOptions]="dtOptions"
-  [dtTrigger]="dtTrigger"
-  class="row-border hover"
->
-  <thead>
-    <tr>
-      <th>Event ID</th>
-      <th>Title</th>
-      <th>Date</th>
-      <th>Operation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let event of eventsMs">
-      <td>{{ event.id }}</td>
-      <td>{{ event.title }}</td>
-      <td>{{ event.date }}</td>
-      <td>
 
-        <a (click)="deleteEvent(event.id)">
-          <button class="btn btn-outline-danger">Delete</button>
-        </a>
+<div class="container">
 
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <div id="eventtable">
+    <table 
+    datatable
+    [dtOptions]="dtOptions"
+    [dtTrigger]="dtTrigger"
+    class="row-border hover"
+  >
+    <thead>
+      <tr>
+        
+        <th>Title</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of eventsMs">
+        
+        <td>{{ event.title }}</td>
+        <td>{{event.eventCategory.name}}</td>
+        <td>{{ event.date }}</td>
+        <td>
+  
+          <a (click)="deleteEvent(event.id)">
+            <button class="btn btn-outline-danger">Delete</button>
+          </a>
+  
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+
+<!-- <div class="d-flex flex-row-reverse">
+  <div class="p-2">
+    <button class="scrollToTop"><i class="fas fa-arrow-up"></i></button>
+  </div>
+  
+</div> -->
+
+<!-- <div class="">
+  <button class="js-gotop"><i class="fas fa-arrow-up"></i></button>
+	
+	</div> -->
+
