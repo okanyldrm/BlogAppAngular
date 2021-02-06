@@ -33,7 +33,9 @@ import { ClientServiceDevopsComponent } from './client-service-devops/client-ser
 import { ClientServiceFrontendComponent } from './client-service-frontend/client-service-frontend.component';
 import { ClientWorkComponent } from './client-work/client-work.component';
 import { ClientComponent } from './client/client.component';
+import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
+import { RegisterComponent } from './register/register.component';
 import { SideComponent } from './side/side.component';
 
 const routes: Routes = [
@@ -52,6 +54,7 @@ const routes: Routes = [
       { path: 'blog', component: ClientBlogComponent },
       { path: 'blog/:blogId', component: ClientBlogPageComponent },
       { path: 'contact', component: ClientContactComponent },
+     
       { path: '', component: ClientHomeComponent, pathMatch: 'full' },
     ],
   },
@@ -88,6 +91,9 @@ const routes: Routes = [
     
     ],
   },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  
 
 
 

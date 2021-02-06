@@ -45,6 +45,7 @@ export class AdminFullcalendarComponent implements OnInit {
     this.dataTableOption();
     this.eventService.getallevent().subscribe((data) => {
       this.eventsMs = data;
+      console.log(this.eventsMs);
       data.forEach(item=>{
         this.eventM.eventCategory=item.eventCategory
       })
