@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EventCategoryDTO } from '../models/EventCategoryDTO';
+import { PostWeekEventDTO } from '../models/PostWeekEventDTO';
+import { EventService } from '../services/event.service';
 declare const $:any;
 declare const anime:any;
 @Component({
@@ -9,7 +12,8 @@ declare const anime:any;
 export class AdminFirstComponent implements OnInit {
   
   parentNode!:any;
-  constructor() { }
+ 
+  constructor(private eventService:EventService) { }
 
   ngOnInit(): void {
     // this.animefunc();
@@ -17,8 +21,14 @@ export class AdminFirstComponent implements OnInit {
       autoplay: false
     });
     this.animejsfunc();
+  
    
   }
+
+
+
+
+
 
   // animefunc(){
   //   const GLOBAL_CFG = {

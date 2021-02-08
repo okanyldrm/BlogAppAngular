@@ -74,7 +74,7 @@
         </li>
         <li class="nav-item has-treeview" [class.menu-open]="menuopen">
           <a
-            href="#"
+            
             class="nav-link"
             (click)="activepagesf()"
             [class.active]="activepages"
@@ -166,11 +166,12 @@
        
         <li class="nav-header">ACCOUNT</li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a  (click)="logout()" class="nav-link">
             <i class="nav-icon far fa-circle text-danger"></i>
             <p class="text">Log Out</p>
           </a>
         </li>
+        <button class="btn btn-warning" (click)="isAuth()">İs auth?</button>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon far fa-circle text-warning"></i>

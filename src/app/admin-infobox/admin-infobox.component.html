@@ -1,16 +1,12 @@
+<div *ngFor="let event of eventCategoryDto">
 <div class="info-box mb-3 bg-warning">
-  <span class="info-box-icon"><i class="fas fa-registered"></i></span>
+  <span class="info-box-icon"><i class="fas fa-exclamation-circle"></i></span>
   <div class="info-box-content">
-    <span class="info-box-text">Look Redis DC</span>
-    <span class="info-box-number"></span>
-  </div>
-</div>
-<div class="info-box mb-3 bg-info">
-  <span class="info-box-icon"><i class="fab fa-algolia"></i></span>
-  <div class="info-box-content">
-    <span class="info-box-text">Look Redis DC</span>
+    <span class="info-box-text">{{event.title | uppercase}}</span>
+    <span class="info-box-text">Time : {{event.date |date}}</span>
     <span class="info-box-number"></span>
   </div>
 </div>
 
+</div>
   

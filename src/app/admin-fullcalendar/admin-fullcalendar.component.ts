@@ -21,6 +21,8 @@ import { Time } from '@angular/common';
 import { Location } from '@angular/common';
 import { codefirstDTO } from '../models/codefirstDTO';
 import { EventCategory } from '../models/EventCategory';
+import { EventCategoryDTO } from '../models/EventCategoryDTO';
+import { Router } from '@angular/router';
 declare var $: any;
 @Component({
   selector: 'app-admin-fullcalendar',
@@ -33,24 +35,29 @@ export class AdminFullcalendarComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
   calendarOptions!: CalendarOptions;
-  codefirstDTOs!: codefirstDTO[]; 
+  eventCategoryDtos!:EventCategoryDTO[];
 
   constructor(
     private eventService: EventService,
     private sweeralert: Sweetalert2Service,
-    private _location: Location
+    private _location: Location,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
     this.dataTableOption();
     this.eventService.getallevent().subscribe((data) => {
       this.eventsMs = data;
-      data.forEach(item=>{
-        this.eventM.eventCategory=item.eventCategory
-      })
+      //console.log(this.eventsMs);
+      // data.forEach(item=>{
+      //   this.eventM.eventCategory=item.eventCategory
+      // })
       this.dtTrigger.next();
       this.eventFunction(this.eventsMs);
-    });
+      this.GetEventCategory();
+    }
+    
+    );
 
 
     //codefirstDTO
@@ -103,17 +110,21 @@ export class AdminFullcalendarComponent implements OnInit {
   deleteEvent(id: any) {
     this.eventService.deleteevent(id).subscribe((data) => {
       this.sweeralert.toast('Deletion Successful', 2900);
-
+      
       setTimeout(() => {
          window.location.reload();
       }, 3000);
+      
     });
   }
 
-getcategoryevent(){
-  this.eventService.getcategoryevent().subscribe((data)=>{
-    this.codefirstDTOs=data;
-  });
+GetEventCategory(){
+  this.eventService.getcategoryeventdto().subscribe((data)=>{ 
+    this.eventCategoryDtos=data
+    });
+  
+  
+
 }
 
 

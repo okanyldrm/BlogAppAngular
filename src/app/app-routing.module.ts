@@ -33,7 +33,10 @@ import { ClientServiceDevopsComponent } from './client-service-devops/client-ser
 import { ClientServiceFrontendComponent } from './client-service-frontend/client-service-frontend.component';
 import { ClientWorkComponent } from './client-work/client-work.component';
 import { ClientComponent } from './client/client.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login/login.guard';
 import { NavComponent } from './nav/nav.component';
+import { RegisterComponent } from './register/register.component';
 import { SideComponent } from './side/side.component';
 
 const routes: Routes = [
@@ -60,34 +63,37 @@ const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     children: [
-      { path: '', component: AdminFirstComponent },
-      { path: 'firstpage', component: AdminFirstComponent },
-      { path: 'fullcalendar', component: AdminFullcalendarComponent },
-      { path: 'nav', component: NavComponent },
-      { path: 'side', component: SideComponent },
-      { path: 'home', component: AdminHomeComponent },
-      { path: 'home/feature/add', component: AdminFeatureAddComponent },
-      { path: 'service', component: AdminServiceComponent },
-      { path: 'service/backend/add', component: AdminServiceBackendAddComponent },
-      { path: 'service/frontend/add', component: AdminServiceFrontendAddComponent },
-      { path: 'service/database/add', component: AdminServiceDatabaseAddComponent },
-      { path: 'service/devops/add', component: AdminServiceDevopsAddComponent },
-      { path: 'work', component: AdminWorkComponent },
-      { path: 'work/add', component: AdminWorkAddComponent },
-      { path: 'about', component: AdminAboutComponent },
-      { path: 'blog', component: AdminBlogComponent },
-      { path: 'blog/add', component: AdminBlogAddComponent },
-      { path: 'home/feature/:featureId', component: AdminFeatureUpdateComponent },
-      { path: 'service/backend/:backendId', component: BackendUpdateFormComponent },
-      { path: 'service/frontend/:frontendId', component: FrontendUpdateFormComponent },
-      { path: 'service/database/:databaseId', component: DatabaseUpdateFormComponent },
-      { path: 'service/devops/:devopsId', component: DevopsUpdateFormComponent },
-      { path: 'work/jop/:workId', component: WorkUpdateFormComponent },
-      { path: 'blog/blog/:blogId', component: AdminBlogUpdateFormComponent },
+      { path: '', component: AdminFirstComponent, canActivate:[LoginGuard] },
+      { path: 'firstpage', component: AdminFirstComponent, canActivate:[LoginGuard] },
+      { path: 'fullcalendar', component: AdminFullcalendarComponent, canActivate:[LoginGuard] },
+      { path: 'nav', component: NavComponent, canActivate:[LoginGuard] },
+      { path: 'side', component: SideComponent, canActivate:[LoginGuard] },
+      { path: 'home', component: AdminHomeComponent, canActivate:[LoginGuard] },
+      { path: 'home/feature/add', component: AdminFeatureAddComponent, canActivate:[LoginGuard] },
+      { path: 'service', component: AdminServiceComponent, canActivate:[LoginGuard] },
+      { path: 'service/backend/add', component: AdminServiceBackendAddComponent, canActivate:[LoginGuard] },
+      { path: 'service/frontend/add', component: AdminServiceFrontendAddComponent, canActivate:[LoginGuard] },
+      { path: 'service/database/add', component: AdminServiceDatabaseAddComponent, canActivate:[LoginGuard] },
+      { path: 'service/devops/add', component: AdminServiceDevopsAddComponent, canActivate:[LoginGuard] },
+      { path: 'work', component: AdminWorkComponent, canActivate:[LoginGuard] },
+      { path: 'work/add', component: AdminWorkAddComponent, canActivate:[LoginGuard] },
+      { path: 'about', component: AdminAboutComponent, canActivate:[LoginGuard] },
+      { path: 'blog', component: AdminBlogComponent, canActivate:[LoginGuard] },
+      { path: 'blog/add', component: AdminBlogAddComponent, canActivate:[LoginGuard] },
+      { path: 'home/feature/:featureId', component: AdminFeatureUpdateComponent, canActivate:[LoginGuard] },
+      { path: 'service/backend/:backendId', component: BackendUpdateFormComponent, canActivate:[LoginGuard] },
+      { path: 'service/frontend/:frontendId', component: FrontendUpdateFormComponent, canActivate:[LoginGuard] },
+      { path: 'service/database/:databaseId', component: DatabaseUpdateFormComponent, canActivate:[LoginGuard] },
+      { path: 'service/devops/:devopsId', component: DevopsUpdateFormComponent, canActivate:[LoginGuard] },
+      { path: 'work/jop/:workId', component: WorkUpdateFormComponent, canActivate:[LoginGuard] },
+      { path: 'blog/blog/:blogId', component: AdminBlogUpdateFormComponent, canActivate:[LoginGuard] },
       
     
-    ],
+    ], canActivate:[LoginGuard]
   },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  
 
 
 
