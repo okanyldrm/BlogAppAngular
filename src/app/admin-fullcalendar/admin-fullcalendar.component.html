@@ -175,8 +175,9 @@
               name="eventCategoryId"
               id="eventCategoryId"
             >
-              <option value=1>Enjoy</option>
-              <option value=2>Work</option>
+              <option value=1>Entertainment</option>
+              <option value=2>Jop</option>
+              <option value=3>Activity</option>
             </select>
           </div>
 
@@ -216,11 +217,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let event of eventsMs">
+      <tr *ngFor="let event of eventCategoryDtos">
         
         <td>{{ event.title }}</td>
-        <td>category</td>
-        <td>{{ event.date }}</td>
+        <td>{{event.eventCategoryName}}</td>
+        <td>{{ event.date |date }}</td>
         <td>
   
           <a (click)="deleteEvent(event.id)">

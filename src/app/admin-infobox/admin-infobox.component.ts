@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EventCategoryDTO } from '../models/EventCategoryDTO';
+import { EventService } from '../services/event.service';
 
 @Component({
   selector: 'app-admin-infobox',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-infobox.component.css']
 })
 export class AdminInfoboxComponent implements OnInit {
-
-  constructor() { }
+  eventCategoryDto!:EventCategoryDTO[];
+  constructor(private eventService:EventService) { }
 
   ngOnInit(): void {
+    this.GetWeekEvent();
   }
+
+
+  GetWeekEvent(){
+    this.eventService.getweekevent().subscribe((data)=>this.eventCategoryDto=data)
+   }
 
 }
