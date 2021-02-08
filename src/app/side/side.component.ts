@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 import { EventService } from '../services/event.service';
 
 @Component({
@@ -8,9 +9,9 @@ import { EventService } from '../services/event.service';
   styleUrls: ['./side.component.css'],
 })
 export class SideComponent implements OnInit {
-  constructor(private router: Router,private eventService:EventService) {}
+  constructor(private router: Router, private eventService: EventService,private authService:AuthService) {}
 
-  eventCount!:number;
+  eventCount!: number;
 
   navlink = true;
   activehome = false;
@@ -20,16 +21,22 @@ export class SideComponent implements OnInit {
   activeblog = false;
   activepages = false;
   menuopen = false;
-  activehomepage=true;
-  activecalendar=false;
-  
+  activehomepage = true;
+  activecalendar = false;
 
   ngOnInit(): void {
+    this.eventService.geteventcount().subscribe((data) => {
+      this.eventCount = data;
+    });
+  }
 
-   this.eventService.geteventcount().subscribe((data)=>{
-    this.eventCount=data;
-   })
+  logout(){
+    this.authService.logout();
+  }
 
+  isAuth(){
+   
+    //alert(this.authService.loggedIn())
   }
 
   activehomef() {
@@ -38,8 +45,8 @@ export class SideComponent implements OnInit {
     this.activework = false;
     this.activeabout = false;
     this.activeblog = false;
-    this.activecalendar=false;
-    this.activehomepage=false;
+    this.activecalendar = false;
+    this.activehomepage = false;
   }
   activeservicef() {
     this.activehome = false;
@@ -47,8 +54,8 @@ export class SideComponent implements OnInit {
     this.activework = false;
     this.activeabout = false;
     this.activeblog = false;
-    this.activecalendar=false;
-    this.activehomepage=false;
+    this.activecalendar = false;
+    this.activehomepage = false;
   }
   activeworkf() {
     this.activehome = false;
@@ -56,8 +63,8 @@ export class SideComponent implements OnInit {
     this.activework = true;
     this.activeabout = false;
     this.activeblog = false;
-    this.activecalendar=false;
-    this.activehomepage=false;
+    this.activecalendar = false;
+    this.activehomepage = false;
   }
   activeaboutf() {
     this.activehome = false;
@@ -65,8 +72,8 @@ export class SideComponent implements OnInit {
     this.activework = false;
     this.activeabout = true;
     this.activeblog = false;
-    this.activecalendar=false;
-    this.activehomepage=false;
+    this.activecalendar = false;
+    this.activehomepage = false;
   }
   activeblogf() {
     this.activehome = false;
@@ -74,8 +81,8 @@ export class SideComponent implements OnInit {
     this.activework = false;
     this.activeabout = false;
     this.activeblog = true;
-    this.activecalendar=false;
-    this.activehomepage=false;
+    this.activecalendar = false;
+    this.activehomepage = false;
   }
 
   activebloglink() {
@@ -85,39 +92,40 @@ export class SideComponent implements OnInit {
     this.activeabout = false;
     this.activeblog = false;
     this.activepages = false;
-    this.activehomepage=true;
-    this.activecalendar=false;
-    
-   
+    this.activehomepage = true;
+    this.activecalendar = false;
   }
 
   activepagesf() {
-      this.activepages = true;
-      this.activehomepage=false;
-      this.activecalendar=false;
+    if(this.menuopen==true){
+      this.menuopen = false;
+    }else{
+      this.menuopen = true;
+    }
+   
+    this.activepages = true;
+    this.activehomepage = false;
+    this.activecalendar = false;
   }
 
-  activehomepagef(){
+  activehomepagef() {
     this.activepages = false;
-    this.activehomepage=true;
-    this.activecalendar=false;
-    this.activeabout=false;
-    this.activework=false;
-    this.activeservice=false;
-    this.activeblog=false;
-    this.activehome=false;
+    this.activehomepage = true;
+    this.activecalendar = false;
+    this.activeabout = false;
+    this.activework = false;
+    this.activeservice = false;
+    this.activeblog = false;
+    this.activehome = false;
   }
-  activecalendarf(){
+  activecalendarf() {
     this.activehome = false;
     this.activeservice = false;
     this.activework = false;
     this.activeabout = false;
     this.activeblog = false;
     this.activepages = false;
-    this.activehomepage=false;
-    this.activecalendar=true;
-
+    this.activehomepage = false;
+    this.activecalendar = true;
   }
-
- 
 }

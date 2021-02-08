@@ -20,8 +20,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   Register(ngform: NgForm) {
-    this.authService.AuthRegister(this.registermodel).subscribe((data) => {
-      this.sweetAlert.fire('Register Done');
-    });
+    this.authService.register(this.registermodel);
+    
   }
 }

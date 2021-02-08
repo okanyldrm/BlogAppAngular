@@ -21,6 +21,7 @@ export class BackendUpdateFormComponent implements OnInit {
   ) {}
 
   backend: Backend = new Backend();
+  backends!: Backend[];
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -35,5 +36,12 @@ export class BackendUpdateFormComponent implements OnInit {
       this.sweetAlert.fire('Updated Backend : '+ this.backend.title);
     });
     this.router.navigate(['/admin/service']);
+    this.getbackendall();
+  }
+
+  getbackendall(){
+    this.backendService
+    .getbackendall()
+    .subscribe((data) => (this.backends = data));
   }
 }

@@ -84,6 +84,7 @@ import { DataTablesModule } from 'angular-datatables';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginGuard } from './login/login.guard';
 
 
 
@@ -169,7 +170,7 @@ import { RegisterComponent } from './register/register.component';
     NgxMaterialTimepickerModule.setLocale('en-EN')
     
   ],
-  providers: [],
+  providers: [LoginGuard],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 

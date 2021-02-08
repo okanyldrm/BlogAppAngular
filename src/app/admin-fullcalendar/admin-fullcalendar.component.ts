@@ -22,6 +22,7 @@ import { Location } from '@angular/common';
 import { codefirstDTO } from '../models/codefirstDTO';
 import { EventCategory } from '../models/EventCategory';
 import { EventCategoryDTO } from '../models/EventCategoryDTO';
+import { Router } from '@angular/router';
 declare var $: any;
 @Component({
   selector: 'app-admin-fullcalendar',
@@ -39,7 +40,8 @@ export class AdminFullcalendarComponent implements OnInit {
   constructor(
     private eventService: EventService,
     private sweeralert: Sweetalert2Service,
-    private _location: Location
+    private _location: Location,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -108,10 +110,11 @@ export class AdminFullcalendarComponent implements OnInit {
   deleteEvent(id: any) {
     this.eventService.deleteevent(id).subscribe((data) => {
       this.sweeralert.toast('Deletion Successful', 2900);
-
+      
       setTimeout(() => {
          window.location.reload();
       }, 3000);
+      
     });
   }
 
