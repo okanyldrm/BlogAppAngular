@@ -41,14 +41,11 @@
               "node_modules/admin-lte/dist/css/adminlte.css",
               //datatable
               "node_modules/datatables.net-dt/css/jquery.dataTables.css",
-         
-             
-
-
               //fullcalendar
               "node_modules/admin-lte/plugins/jqvmap/jqvmap.min.css",
               "node_modules/@fullcalendar/common/main.css",
               "node_modules/@fullcalendar/daygrid/main.css"
+              
               
             ],
 
@@ -89,9 +86,14 @@
               "node_modules/admin-lte/plugins/sparklines/sparkline.js",
               "node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js",
               //datatable
-              "node_modules/datatables.net/js/jquery.dataTables.js"
-            
-              
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              //loginv3
+              "src/Login_v3/js/mainlogin.js",
+              "src/Login_v3/vendor/animsition/js/animsition.min.js",
+              "src/Login_v3/vendor/countdowntime/countdowntime.js",
+              "src/Login_v3/vendor/perfect-scrollbar/perfect-scrollbar.min.js",
+              "src/Login_v3/vendor/select2/select2.min.js"
+
             ]
           },
           "configurations": {
