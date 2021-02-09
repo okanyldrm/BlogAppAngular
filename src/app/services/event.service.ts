@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { codefirstDTO } from '../models/codefirstDTO';
 import { EventCategoryDTO } from '../models/EventCategoryDTO';
 import { EventM } from '../models/EventM';
+import { GetMonthEventDTO } from '../models/GetMonthEventDTO';
 import { PostWeekEventDTO } from '../models/PostWeekEventDTO';
 import { AuthService } from './auth.service';
 
@@ -20,6 +21,7 @@ export class EventService {
   path5 = 'http://localhost:5000/api/event/eventcount';
   path7 = 'http://localhost:5000/api/event/GetEventCategory';
   path8 = 'http://localhost:5000/api/event/GetWeekEvent';
+  path9 = 'http://localhost:5000/api/event/GetMonthEvent';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
@@ -72,4 +74,11 @@ export class EventService {
       headers: this.headers,
     });
   }
+
+  getmonthevent(): Observable<GetMonthEventDTO> {
+    return this.http.get<GetMonthEventDTO>(this.path9, {
+      headers: this.headers,
+    });
+  }
+  
 }

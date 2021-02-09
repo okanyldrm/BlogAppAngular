@@ -85,6 +85,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginGuard } from './login/login.guard';
+import { AdminChartsEventweekComponent } from './admin-charts-eventweek/admin-charts-eventweek.component';
 
 
 
@@ -145,7 +146,8 @@ import { LoginGuard } from './login/login.guard';
     AdminBlogAddComponent,
     SchedulerComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminChartsEventweekComponent
     
   
   

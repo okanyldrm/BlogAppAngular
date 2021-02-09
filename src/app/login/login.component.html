@@ -1,68 +1,53 @@
-<div class=" login-page">
-    <div class="login-box">
-      <div class="login-logo">
-        <a href="../../index2.html"><b>Blog</b>CMS</a>
-      </div>
-      <!-- /.login-logo -->
-      <div class="card">
-        <div class="card-body login-card-body">
-       
-          <button (click)="islogged()">is logged</button>
-    
-          <form  #loginform="ngForm"  (ngSubmit)="Login(loginform)">
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="username" #Username="ngModel" [(ngModel)]="loginUser.Username" id="username" name="username">
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-envelope"></span>
-                </div>
-              </div>
-            </div>
-            <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="password" #Password="ngModel" [(ngModel)]="loginUser.Password" id="password" name="password">
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-lock"></span>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <!-- <div class="col-8">
-                <div class="icheck-primary">
-                  <input type="checkbox" id="remember">
-                  <label for="remember">
-                    Remember Me
-                  </label>
-                </div>
-              </div> -->
-              <!-- /.col -->
-              <div class="col-4">
-                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-              </div>
-              <!-- /.col -->
-            </div>
-          </form>
-    
-          <div class="social-auth-links text-center mb-3">
-            <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-primary disabled">
-              <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-            </a>
-            <a href="#" class="btn btn-block btn-danger disabled">
-              <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-            </a>
-          </div>
-          <!-- /.social-auth-links -->
-    
-          <!-- <p class="mb-1">
-            <a href="forgot-password.html">I forgot my password</a>
-          </p> -->
-          
-        </div>
-        <!-- /.login-card-body -->
-      </div>
-    </div>
-    <!-- /.login-box -->
-    
-    
+
+<div>
+	<div class="limiter">
+		<div class="container-login100" >
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" #loginform="ngForm" (ngSubmit)="Login(loginform)">
+					<span class="login100-form-logo">
+            
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Admin Login
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" placeholder="Username" #Username="ngModel" [(ngModel)]="loginUser.Username" id="username" name="username"   >
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password"  placeholder="Password" #Password="ngModel" [(ngModel)]="loginUser.Password" id="password" name="password">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+					<!-- <div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Remember me
+						</label>
+					</div> -->
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+					<!-- <div class="text-center p-t-90">
+						<a class="txt1" href="#">
+							Forgot Password?
+						</a>
+					</div> -->
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+
+
 </div>
