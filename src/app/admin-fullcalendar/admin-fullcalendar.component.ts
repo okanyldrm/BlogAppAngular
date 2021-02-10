@@ -35,13 +35,17 @@ export class AdminFullcalendarComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
   calendarOptions!: CalendarOptions;
-  eventCategoryDtos!:EventCategoryDTO[];
+  eventCategoryDtos!: EventCategoryDTO[];
+
+  //
+  eventName!: string;
+  pevent: number = 1;
 
   constructor(
     private eventService: EventService,
     private sweeralert: Sweetalert2Service,
     private _location: Location,
-    private router:Router
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -55,10 +59,7 @@ export class AdminFullcalendarComponent implements OnInit {
       this.dtTrigger.next();
       this.eventFunction(this.eventsMs);
       this.GetEventCategory();
-    }
-    
-    );
-
+    });
 
     //codefirstDTO
     // this.eventService.getcategoryevent().subscribe((data)=>{
@@ -66,9 +67,8 @@ export class AdminFullcalendarComponent implements OnInit {
     //   data.forEach(item => {
     //     console.log(item)
     //   });
-     
+
     // });
-    
   }
 
   eventFunction(events: any) {
@@ -110,22 +110,39 @@ export class AdminFullcalendarComponent implements OnInit {
   deleteEvent(id: any) {
     this.eventService.deleteevent(id).subscribe((data) => {
       this.sweeralert.toast('Deletion Successful', 2900);
-      
+
       setTimeout(() => {
-         window.location.reload();
+        window.location.reload();
       }, 3000);
-      
     });
   }
 
-GetEventCategory(){
-  this.eventService.getcategoryeventdto().subscribe((data)=>{ 
-    this.eventCategoryDtos=data
+  GetEventCategory() {
+    this.eventService.getcategoryeventdto().subscribe((data) => {
+      this.eventCategoryDtos = data;
     });
-  
-  
+  }
 
-}
 
+ 
+  SearchBackend() {
+    if (this.eventName == '') {
+      this.ngOnInit();
+    } else {
+      this.eventsMs = this.eventsMs.filter((res) => {
+        return res.title
+          .toLocaleLowerCase()
+          .match(this.eventName.toLocaleLowerCase());
+      });
+    }
+  }
+
+  
+  key: string = 'id';
+  reverse: boolean = false;
+  sortbyid(key: any) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 
 }

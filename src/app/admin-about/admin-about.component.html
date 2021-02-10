@@ -66,7 +66,15 @@
             <div class="row">
                 <div class="col-sm-6">
                   <!-- text input -->
-                  <button type="submit" class="btn btn-success mr-2 px-4">Update</button>
+                  <button type="submit" class="btn btn-success mr-2 px-4" [disabled]="updateaboutpageform.pristine">
+                      Update</button>
+                  <br><br>
+                  <div *ngIf="updateaboutpageform.pristine" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Update Button Disabled</strong>  If a change is made to the original form, it will be active.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 

@@ -14,7 +14,10 @@
                 <!-- text input -->
                 <div class="form-group">
                   <label>Title</label>
-                  <input   type="text" class="form-control" #title="ngModel" [(ngModel)]="work.title" name="title" id="title" />
+                  <input   type="text" class="form-control" #title="ngModel" [(ngModel)]="work.title" name="title" id="title" required />
+                </div>
+                <div *ngIf="title.invalid && title.dirty" class="alert alert-danger">
+                  Title Required
                 </div>
               </div>
             </div>
@@ -25,7 +28,10 @@
                   <!-- text input -->
                   <div class="form-group">
                     <label>İmageUrl</label>
-                    <input   type="text" class="form-control" #imageUrl [(ngModel)]="work.imageUrl" name="imageUrl" id="imageUrl" />
+                    <input   type="text" class="form-control" #imageUrl="ngModel" [(ngModel)]="work.imageUrl" name="imageUrl" id="imageUrl" required />
+                  </div>
+                  <div *ngIf="imageUrl.invalid && imageUrl.dirty" class="alert alert-danger">
+                    Title Required
                   </div>
                 </div>
               </div>
@@ -36,9 +42,16 @@
             <div class="row">
               <div class="col-sm-6">
                 <!-- text input -->
-                <button type="submit" class="btn btn-success mr-2 px-4">
+                <button type="submit" class="btn btn-success mr-2 px-4" [disabled]="addworkform.invalid">
                   Add
                 </button>
+                <br><br>
+          <div *ngIf="addworkform.invalid" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Add Button Disabled</strong> It will be active if the required fields are filled
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
               </div>
             </div>
           </form>
