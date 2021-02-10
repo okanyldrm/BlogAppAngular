@@ -97,11 +97,7 @@ export class SideComponent implements OnInit {
   }
 
   activepagesf() {
-    if(this.menuopen==true){
-      this.menuopen = false;
-    }else{
-      this.menuopen = true;
-    }
+  
    
     this.activepages = true;
     this.activehomepage = false;
@@ -116,7 +112,7 @@ export class SideComponent implements OnInit {
     this.activework = false;
     this.activeservice = false;
     this.activeblog = false;
-    this.activehome = false;
+    this.menuopen=false;
   }
   activecalendarf() {
     this.activehome = false;
@@ -127,5 +123,6 @@ export class SideComponent implements OnInit {
     this.activepages = false;
     this.activehomepage = false;
     this.activecalendar = true;
+
   }
 }

@@ -1,78 +1,26 @@
 <!-- Button trigger modal -->
 <div class="container">
   <div class="row">
-    <div class="col-md-0">
-  
-    </div>
+    <div class="col-md-0"></div>
     <div class="col-md-12">
-     
-          <button
-          (click)="addEvent()"
-          type="button"
-          class="btn btn-outline-success"
-          data-toggle="modal"
-          data-target="#exampleModal"
-        >
-          Add Event
-        </button>
-        &nbsp;
-       
-          <!-- <button
-          type="button"
-          class="btn btn-outline-warning scrollToBottom"
-          data-toggle="modal"
-          data-target="#exampleModal"
-        >
-          List Event
-        </button> -->
-       
+      <button
+        (click)="addEvent()"
+        type="button"
+        class="btn btn-outline-success"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
+        Add Event
+      </button>
+      &nbsp;
     </div>
   </div>
 </div>
 
+<full-calendar [options]="calendarOptions"></full-calendar>
 
-  <full-calendar [options]="calendarOptions"></full-calendar>
+<br />
 
-
-
-<br /> 
-
-<!-- <div class="row">
-  <div class="col-sm-8">
-    <div class="card card-cyan">
-      <div class="card-header">
-        <h3 class="card-title">Events</h3>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-sm-3">
-            <h3>Events</h3>
-            <div  *ngFor="let event of eventsMs">
-              <i class="fas fa-circle text-green"></i>
-              {{event.title}}
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <h3>Colors</h3>
-            <div  *ngFor="let event of eventsMs">
-              {{event.color}}
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <h3>Date</h3>
-            <div  *ngFor="let event of eventsMs">
-              {{event.date}}
-            </div>
-          </div>
-         
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- Modal -->
 <div
   class="modal fade"
   id="exampleModal"
@@ -96,11 +44,6 @@
       </div>
       <form #addeventform="ngForm" (ngSubmit)="addEventDb(addeventform)">
         <div class="modal-body">
-          <!-- <div class="form-group">
-          <label>Date</label>
-          <input type="text" class="form-control" #dateM="ngModel" [(ngModel)]="eventM.date" name="dateM" id="dateM"  />
-        </div> -->
-
           <div class="form-group">
             <label>Title</label>
             <input
@@ -110,7 +53,14 @@
               [(ngModel)]="eventM.title"
               name="titleM"
               id="titleM"
+              required
             />
+          </div>
+          <div
+            *ngIf="titleM.invalid && titleM.dirty"
+            class="alert alert-danger"
+          >
+            Title Required
           </div>
 
           <mat-form-field appearance="fill">
@@ -123,7 +73,14 @@
               [(ngModel)]="eventM.date"
               name="dateM"
               id="dateM"
+              required
             />
+            <div
+              *ngIf="dateM.invalid && dateM.dirty"
+              class="alert alert-danger"
+            >
+              Date Required
+            </div>
 
             <mat-datepicker-toggle
               matSuffix
@@ -132,11 +89,11 @@
             <mat-datepicker disabled="false" #picker></mat-datepicker>
           </mat-form-field>
           <p></p>
- 
+
           <mat-form-field>
             <mat-label>Choose a time:&nbsp;</mat-label>
             <input
-              [format]=24
+              [format]="24"
               matInput
               aria-label="default time"
               [ngxTimepicker]="defaultValue"
@@ -144,10 +101,13 @@
               [(ngModel)]="eventM.time"
               #timeM="ngModel"
               name="timeM"
-              
+              required
             />
-            <ngx-material-timepicker #defaultValue > </ngx-material-timepicker>
+            <ngx-material-timepicker #defaultValue> </ngx-material-timepicker>
           </mat-form-field>
+          <div *ngIf="timeM.invalid && timeM.dirty" class="alert alert-danger">
+            Time Required
+          </div>
 
           <div class="form-group">
             <label>Color</label>
@@ -157,6 +117,7 @@
               [(ngModel)]="eventM.color"
               name="colorM"
               id="colorM"
+              required
             >
               <option>Green</option>
               <option>Red</option>
@@ -164,7 +125,12 @@
               <option>Cyan</option>
             </select>
           </div>
-
+          <div
+            *ngIf="colorM.invalid && colorM.dirty"
+            class="alert alert-danger"
+          >
+            Color Required
+          </div>
 
           <div class="form-group">
             <label>Category</label>
@@ -174,77 +140,98 @@
               [(ngModel)]="eventM.eventCategoryId"
               name="eventCategoryId"
               id="eventCategoryId"
+              required
             >
-              <option value=1>Entertainment</option>
-              <option value=2>Jop</option>
-              <option value=3>Activity</option>
+              <option value="1">Entertainment</option>
+              <option value="2">Jop</option>
+              <option value="3">Activity</option>
             </select>
           </div>
 
-
-
-
+          <div
+            *ngIf="eventCategoryId.invalid && eventCategoryId.dirty"
+            class="alert alert-danger"
+          >
+            Category Required
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
           </button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-          <button type="submit" class="btn btn-primary">Save Event</button>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="addeventform.invalid"
+          >
+            Save Event
+          </button>
+          <br /><br />
+          <div
+            *ngIf="addeventform.invalid"
+            class="alert alert-success alert-dismissible fade show"
+            role="alert"
+          >
+            <strong>Save Event Disabled</strong> It will be active if the
+            required fields are filled
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
         </div>
       </form>
     </div>
   </div>
 </div>
 
-
-<div class="container">
-
-  <div id="eventtable">
-    <table 
-    datatable
-    [dtOptions]="dtOptions"
-    [dtTrigger]="dtTrigger"
-    class="row-border hover"
-  >
+<div class="container" id="eventtable">
+  <table class="table table-bordered">
     <thead>
       <tr>
-        
+        <th style="width: 100px" (click)="sortbyid('id')">
+          ID &nbsp; <i class="fa fa-sort"></i>
+        </th>
         <th>Title</th>
-        <th>Category</th>
-        <th>Date</th>
-        <th>Operation</th>
+        <th style="width: 300px">Category</th>
+        <th style="width: 300px">Date</th>
+        <th style="width: 100px">Operation</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let event of eventCategoryDtos">
-        
+      <tr
+        *ngFor="
+          let event of eventCategoryDtos
+            | orderBy: key:reverse
+            | paginate
+              : {
+                  id: 'eventpaginate',
+                  itemsPerPage: 5,
+                  currentPage: pevent
+                }
+        "
+      >
+        <th>{{ event.id | slice: 0:4 }}</th>
         <td>{{ event.title }}</td>
-        <td>{{event.eventCategoryName}}</td>
-        <td>{{ event.date |date }}</td>
+        <td>{{ event.eventCategoryName }}</td>
+        <td>{{ event.date | date }}</td>
         <td>
-  
           <a (click)="deleteEvent(event.id)">
             <button class="btn btn-outline-danger">Delete</button>
           </a>
-  
         </td>
       </tr>
     </tbody>
   </table>
-  </div>
 </div>
-
-
-<!-- <div class="d-flex flex-row-reverse">
-  <div class="p-2">
-    <button class="scrollToTop"><i class="fas fa-arrow-up"></i></button>
-  </div>
-  
-</div> -->
-
-<!-- <div class="">
-  <button class="js-gotop"><i class="fas fa-arrow-up"></i></button>
-	
-	</div> -->
-
+<div class="card-footer clearfix">
+  <ul class="pagination pagination-sm m-0 float-right">
+    <pagination-controls id="eventpaginate" (pageChange)="pevent = $event">
+    </pagination-controls>
+  </ul>
+</div>

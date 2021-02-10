@@ -14,14 +14,20 @@
                 <!-- text input -->
                 <div class="form-group">
                   <label>Title</label>
-                  <input   type="text" class="form-control" #title="ngModel" [(ngModel)]="blog.title" name="title" id="title"   />
+                  <input   type="text" class="form-control" #title="ngModel" [(ngModel)]="blog.title" name="title" id="title" required  />
+                </div>
+                <div *ngIf="title.invalid && title.dirty" class="alert alert-danger">
+                  Title Required
                 </div>
               </div>
               <div class="col-sm-6">
                 <!-- text input -->
                 <div class="form-group">
                   <label>Mini Title</label>
-                  <input   type="text" class="form-control" #miniTitle="ngModel" [(ngModel)]="blog.miniTitle" name="miniTitle" id="miniTitle"  />
+                  <input   type="text" class="form-control" #miniTitle="ngModel" [(ngModel)]="blog.miniTitle" name="miniTitle" id="miniTitle" required  />
+                </div>
+                <div *ngIf="miniTitle.invalid && miniTitle.dirty" class="alert alert-danger">
+                  MiniTitle Required
                 </div>
               </div>
             </div>
@@ -34,7 +40,11 @@
                 class="form-control"
                 rows="15"
                 #content="ngModel" [(ngModel)]="blog.content" name="content" id="content"
+                required
               ></textarea>
+              <div *ngIf="content.invalid && content.dirty" class="alert alert-danger">
+                Content Required
+              </div>
             </div>
         
             <div class="row">
@@ -42,14 +52,20 @@
                   <!-- text input -->
                   <div class="form-group">
                     <label>Title-2</label>
-                    <input   type="text" class="form-control" #title2="ngModel" [(ngModel)]="blog.title2" name="title2" id="title2" />
+                    <input   type="text" class="form-control" #title2="ngModel" [(ngModel)]="blog.title2" name="title2" id="title2" required />
+                  </div>
+                  <div *ngIf="title2.invalid && title2.dirty" class="alert alert-danger">
+                    Title2 Required
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <!-- text input -->
                   <div class="form-group">
                     <label>ImageUrl</label>
-                    <input   type="text" class="form-control" #imageUrl="ngModel" [(ngModel)]="blog.imageUrl" name="imageUrl" id="imageUrl"  />
+                    <input   type="text" class="form-control" #imageUrl="ngModel" [(ngModel)]="blog.imageUrl" name="imageUrl" id="imageUrl"  required />
+                  </div>
+                  <div *ngIf="imageUrl.invalid && imageUrl.dirty" class="alert alert-danger">
+                    ImageUrl Required
                   </div>
                 </div>
               </div>
@@ -60,7 +76,11 @@
                   class="form-control"
                   rows="10"
                 #content2="ngModel" [(ngModel)]="blog.content2" name="content2" id="content2"
+                required
                 ></textarea>
+                <div *ngIf="content2.invalid && content2.dirty" class="alert alert-danger">
+                  Content2 Required
+                </div>
               </div>
            
         
@@ -69,9 +89,16 @@
             <div class="row">
               <div class="col-sm-6">
                 <!-- text input -->
-                <button type="submit" class="btn btn-success mr-2 px-4">
+                <button type="submit" class="btn btn-success mr-2 px-4" [disabled]="addblogform.invalid">
                   Add
                 </button>
+                <br><br>
+                <div *ngIf="addblogform.invalid" class="alert alert-success alert-dismissible fade show" role="alert">
+                  <strong>Add Button Disabled</strong>  It will be active if the required fields are filled
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
               </div>
             </div>
           </form>

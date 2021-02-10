@@ -35,7 +35,7 @@ export class AdminChartsEventweekComponent implements OnInit {
         labels: ['FirstWeek', 'SecondWeek', 'ThirdWeek', 'ForthWeek'],
         datasets: [
           {
-            label: 'Event Chart',
+            label: 'Events',
             data: [FirstWeek, SecondWeek, ThirdWeek, ForthWeek],
             backgroundColor: [
               'rgba(25, 99, 132, 0.2)',
